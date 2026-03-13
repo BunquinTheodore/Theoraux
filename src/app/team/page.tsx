@@ -36,7 +36,7 @@ export default function TeamPage() {
       {/* Team Grid */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
@@ -46,12 +46,13 @@ export default function TeamPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group rounded-2xl bg-light p-8 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full ring-4 ring-primary-50">
+                <div className="relative mx-auto mb-6 aspect-[9/16] w-28 overflow-hidden rounded-2xl bg-white ring-2 ring-primary-50 shadow-sm">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    sizes="128px"
+                    className="object-contain object-top"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-dark">

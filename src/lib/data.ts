@@ -317,41 +317,51 @@ export const pricingTiers = [
   },
 ];
 
+import theodoreImage from "../../assests/17.png";
+import danielImage from "../../assests/21.png";
+import christianImage from "../../assests/18.png";
+import johnImage from "../../assests/19.png";
+import paulImage from "../../assests/20.png";
+
 export const teamMembers = [
   {
-    id: 1,
-    name: "Marcus Rivera",
-    role: "CEO & Founder",
-    bio: "With over 12 years in the software industry, Marcus founded Theoraux with a mission to make intelligent automation accessible to businesses of all sizes.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    socials: { linkedin: "#", twitter: "#" },
-  },
-  {
     id: 2,
-    name: "Sarah Chen",
-    role: "Lead Developer",
-    bio: "Sarah leads our development team with expertise in full-stack development, cloud architecture, and a passion for writing clean, scalable code.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
+    name: "Daniel Villanueva",
+    role: "Full Stack Developer",
+    bio: "Daniel builds reliable front-end and back-end features, translating business requirements into polished user experiences and dependable application logic.",
+    image: danielImage,
     socials: { linkedin: "#", twitter: "#" },
   },
   {
     id: 3,
-    name: "David Kim",
-    role: "UI/UX Designer",
-    bio: "David crafts intuitive interfaces and memorable experiences. His human-centered approach ensures every design decision serves the end user.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
+    name: "Christian Nayre",
+    role: "Full Stack Developer",
+    bio: "Christian focuses on building smooth, maintainable product flows across the stack, helping turn ideas into stable and high-performing digital solutions.",
+    image: christianImage,
+    socials: { linkedin: "#", twitter: "#" },
+  },
+  {
+    id: 1,
+    name: "Theodore Bunquin",
+    role: "CEO & Founder",
+    bio: "Theodore leads Theoraux with a clear vision for building practical, scalable software that helps clients streamline operations and grow with confidence.",
+    image: theodoreImage,
     socials: { linkedin: "#", twitter: "#" },
   },
   {
     id: 4,
-    name: "Emily Torres",
+    name: "John Alcaraz",
+    role: "DevOps",
+    bio: "John manages deployment pipelines, hosting environments, and platform stability to keep projects secure, efficient, and ready to scale.",
+    image: johnImage,
+    socials: { linkedin: "#", twitter: "#" },
+  },
+  {
+    id: 5,
+    name: "Paul Alcaraz",
     role: "Project Manager",
-    bio: "Emily keeps our projects on track and our clients happy. Her organized approach and clear communication make complex projects feel effortless.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    bio: "Paul keeps delivery moving with clear coordination, structured planning, and consistent communication that helps projects stay aligned from kickoff to launch.",
+    image: paulImage,
     socials: { linkedin: "#", twitter: "#" },
   },
 ];

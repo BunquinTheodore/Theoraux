@@ -15,7 +15,7 @@ export default function TeamSection() {
           title="Meet the People Behind Theoraux"
           description="A passionate team of developers, designers, and strategists dedicated to delivering exceptional results."
         />
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -25,12 +25,13 @@ export default function TeamSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group rounded-2xl bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full">
+              <div className="relative mx-auto mb-4 aspect-[9/16] w-24 overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200 shadow-sm">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover"
+                  sizes="112px"
+                  className="object-contain object-top"
                 />
               </div>
               <h3 className="text-lg font-semibold text-dark">
