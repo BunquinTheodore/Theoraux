@@ -44,17 +44,17 @@ export default function Hero() {
             {/* Trust indicators */}
             <div className="mt-12 flex items-center gap-8">
               <div>
-                <p className="text-3xl font-bold text-dark">150+</p>
+                <p className="text-3xl font-bold text-dark">25+</p>
                 <p className="text-sm text-dark/50">Projects Delivered</p>
               </div>
               <div className="h-12 w-px bg-gray-200" />
               <div>
-                <p className="text-3xl font-bold text-dark">80+</p>
+                <p className="text-3xl font-bold text-dark">8+</p>
                 <p className="text-sm text-dark/50">Happy Clients</p>
               </div>
               <div className="h-12 w-px bg-gray-200" />
               <div>
-                <p className="text-3xl font-bold text-dark">5+</p>
+                <p className="text-3xl font-bold text-dark">3+</p>
                 <p className="text-sm text-dark/50">Years Experience</p>
               </div>
             </div>

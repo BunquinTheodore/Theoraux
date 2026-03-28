@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Linkedin, Twitter } from "lucide-react";
 import { teamMembers } from "@/lib/data";
 import CTABanner from "@/components/sections/CTABanner";
 
@@ -46,7 +45,7 @@ export default function TeamPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group rounded-2xl bg-light p-8 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="relative mx-auto mb-6 aspect-[9/16] w-28 overflow-hidden rounded-2xl bg-white ring-2 ring-primary-50 shadow-sm">
+                <div className="relative mx-auto mb-6 aspect-9/16 w-28 overflow-hidden rounded-2xl bg-white ring-2 ring-primary-50 shadow-sm">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -64,22 +63,6 @@ export default function TeamPage() {
                 <p className="mt-4 text-sm leading-relaxed text-dark/60">
                   {member.bio}
                 </p>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a
-                    href={member.socials.linkedin}
-                    className="text-dark/30 transition-colors hover:text-primary-600"
-                    aria-label={`${member.name} LinkedIn`}
-                  >
-                    <Linkedin size={20} />
-                  </a>
-                  <a
-                    href={member.socials.twitter}
-                    className="text-dark/30 transition-colors hover:text-primary-600"
-                    aria-label={`${member.name} Twitter`}
-                  >
-                    <Twitter size={20} />
-                  </a>
-                </div>
               </motion.div>
             ))}
           </div>

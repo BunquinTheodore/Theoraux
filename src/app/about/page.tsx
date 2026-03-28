@@ -106,7 +106,7 @@ export default function AboutPage() {
                 goals — and ends with a solution that fits like a glove.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-dark/60">
-                Today, we&apos;ve delivered over 150 projects for 80+ clients
+                Today, we&apos;ve delivered 25 projects for 8 clients
                 across diverse industries, and we&apos;re just getting started.
               </p>
             </motion.div>

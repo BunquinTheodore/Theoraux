@@ -8,6 +8,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit";
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -18,6 +19,7 @@ export default function Button({
   className = "",
   onClick,
   type = "button",
+  disabled = false,
 }: ButtonProps) {
   const baseStyles =
     "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200";
@@ -35,9 +37,14 @@ export default function Button({
     lg: "px-8 py-4 text-base",
   };
 
-  const styles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+  const disabledStyles = disabled ? "opacity-60 pointer-events-none" : "";
+  const styles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles} ${className}`;
 
   if (href) {
+    if (disabled) {
+      return <span className={styles}>{children}</span>;
+    }
+
     return (
       <Link href={href} className={styles}>
         {children}
@@ -46,7 +53,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={styles}>
+    <button type={type} onClick={onClick} className={styles} disabled={disabled}>
       {children}
     </button>
   );

@@ -14,10 +14,45 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/bunquintheodore@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            _subject: `New Contact Form - ${formData.name || "Website Visitor"}`,
+            _template: "table",
+            _captcha: "false",
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to send message.");
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", service: "", budget: "", message: "" });
+    } catch {
+      setSubmitError(
+        "We could not send your message right now. Please try again in a moment."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -71,7 +106,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Email</p>
-                    <p className="text-dark/60">hello@theoraux.com</p>
+                    <p className="text-dark/60">bunquintheodore@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -80,7 +115,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Phone</p>
-                    <p className="text-dark/60">+1 (555) 123-4567</p>
+                    <p className="text-dark/60">(+63) 962 993 5762</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -89,11 +124,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Location</p>
-                    <p className="text-dark/60">
-                      123 Innovation Drive
-                      <br />
-                      Tech City, TC 10001
-                    </p>
+                    <p className="text-dark/60">Philippines</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -246,9 +277,24 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="mt-8">
-                    <Button type="submit" size="lg" className="w-full sm:w-auto">
-                      Send Message <Send className="ml-2" size={16} />
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full sm:w-auto"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {!isSubmitting && <Send className="ml-2" size={16} />}
                     </Button>
+                    {submitError && (
+                      <p className="mt-3 text-sm text-red-600">{submitError}</p>
+                    )}
+                    <p className="mt-3 text-xs text-dark/50">
+                      First-time setup: FormSubmit will send an activation email
+                      to bunquintheodore@gmail.com after your first test
+                      submission. Open that email once and click Activate to
+                      start receiving all future messages.
+                    </p>
                   </div>
                 </form>
               )}

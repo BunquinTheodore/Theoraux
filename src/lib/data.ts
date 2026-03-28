@@ -160,7 +160,7 @@ export const portfolioProjects = [
     description:
       "A secure mobile banking application with biometric authentication, real-time transactions, and budget tracking tools serving over 50,000 active users.",
     image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?w=800&h=600&fit=crop",
     client: "FinTrack Financial",
   },
   {
@@ -330,7 +330,10 @@ export const teamMembers = [
     role: "Full Stack Developer",
     bio: "Daniel builds reliable front-end and back-end features, translating business requirements into polished user experiences and dependable application logic.",
     image: danielImage,
-    socials: { linkedin: "#", twitter: "#" },
+    socials: {
+      linkedin: "https://www.linkedin.com/company/112286976",
+      facebook: "https://www.facebook.com/profile.php?id=61582763437544",
+    },
   },
   {
     id: 3,
@@ -338,7 +341,10 @@ export const teamMembers = [
     role: "Full Stack Developer",
     bio: "Christian focuses on building smooth, maintainable product flows across the stack, helping turn ideas into stable and high-performing digital solutions.",
     image: christianImage,
-    socials: { linkedin: "#", twitter: "#" },
+    socials: {
+      linkedin: "https://www.linkedin.com/company/112286976",
+      facebook: "https://www.facebook.com/profile.php?id=61582763437544",
+    },
   },
   {
     id: 1,
@@ -346,7 +352,10 @@ export const teamMembers = [
     role: "CEO & Founder",
     bio: "Theodore leads Theoraux with a clear vision for building practical, scalable software that helps clients streamline operations and grow with confidence.",
     image: theodoreImage,
-    socials: { linkedin: "#", twitter: "#" },
+    socials: {
+      linkedin: "https://www.linkedin.com/company/112286976",
+      facebook: "https://www.facebook.com/profile.php?id=61582763437544",
+    },
   },
   {
     id: 4,
@@ -354,7 +363,10 @@ export const teamMembers = [
     role: "DevOps",
     bio: "John manages deployment pipelines, hosting environments, and platform stability to keep projects secure, efficient, and ready to scale.",
     image: johnImage,
-    socials: { linkedin: "#", twitter: "#" },
+    socials: {
+      linkedin: "https://www.linkedin.com/company/112286976",
+      facebook: "https://www.facebook.com/profile.php?id=61582763437544",
+    },
   },
   {
     id: 5,
@@ -362,7 +374,10 @@ export const teamMembers = [
     role: "Project Manager",
     bio: "Paul keeps delivery moving with clear coordination, structured planning, and consistent communication that helps projects stay aligned from kickoff to launch.",
     image: paulImage,
-    socials: { linkedin: "#", twitter: "#" },
+    socials: {
+      linkedin: "https://www.linkedin.com/company/112286976",
+      facebook: "https://www.facebook.com/profile.php?id=61582763437544",
+    },
   },
 ];
 
@@ -525,9 +540,9 @@ Investing in UI/UX design isn't just about aesthetics — it directly impacts bu
 ];
 
 export const stats = [
-  { value: "150+", label: "Projects Delivered" },
-  { value: "80+", label: "Happy Clients" },
-  { value: "5+", label: "Years Experience" },
+  { value: "25+", label: "Projects Delivered" },
+  { value: "8+", label: "Happy Clients" },
+  { value: "3+", label: "Years Experience" },
   { value: "12", label: "Team Members" },
 ];
 

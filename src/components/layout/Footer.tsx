@@ -4,9 +4,7 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Twitter,
   Facebook,
-  Github,
 } from "lucide-react";
 
 export default function Footer() {
@@ -23,32 +21,22 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/112286976"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 transition-colors hover:text-primary-400"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
               <a
-                href="#"
-                className="text-gray-400 transition-colors hover:text-primary-400"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61582763437544"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 transition-colors hover:text-primary-400"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 transition-colors hover:text-primary-400"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
               </a>
             </div>
           </div>
@@ -109,22 +97,18 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-primary-400" />
                 <span className="text-sm text-gray-400">
-                  hello@theoraux.com
+                  bunquintheodore@gmail.com
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-primary-400" />
                 <span className="text-sm text-gray-400">
-                  +1 (555) 123-4567
+                  (+63) 962 993 5762
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-0.5 text-primary-400" />
-                <span className="text-sm text-gray-400">
-                  123 Innovation Drive
-                  <br />
-                  Tech City, TC 10001
-                </span>
+                <span className="text-sm text-gray-400">Philippines</span>
               </li>
             </ul>
           </div>
