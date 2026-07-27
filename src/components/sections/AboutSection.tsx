@@ -1,35 +1,72 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { stats } from "@/lib/data";
+import Image from "next/image";
+import Link from "next/link";
+import { stats, portfolioProjects } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
+
+const showcase = portfolioProjects.slice(3, 6);
 
 export default function AboutSection() {
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-          {/* Left - Visual */}
+          {/* Left - Visual: real project wall */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="grid h-[400px] grid-cols-2 gap-4"
           >
-            <div className="relative h-[400px] overflow-hidden rounded-3xl bg-gradient-to-br from-primary-500 to-primary-700">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <p className="text-7xl font-bold">5+</p>
-                  <p className="mt-2 text-xl font-medium opacity-80">
-                    Years of Innovation
-                  </p>
-                </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-2xl bg-primary-300 opacity-30" />
-              <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-primary-300 opacity-20" />
-            </div>
+            <Link
+              href={`/portfolio/${showcase[0].id}`}
+              className="group relative row-span-2 overflow-hidden rounded-3xl"
+            >
+              <Image
+                src={showcase[0].image}
+                alt={showcase[0].title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/0 to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-sm font-semibold text-white">
+                {showcase[0].title}
+              </p>
+            </Link>
+            <Link
+              href={`/portfolio/${showcase[1].id}`}
+              className="group relative overflow-hidden rounded-3xl"
+            >
+              <Image
+                src={showcase[1].image}
+                alt={showcase[1].title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/0 to-transparent" />
+              <p className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white">
+                {showcase[1].title}
+              </p>
+            </Link>
+            <Link
+              href={`/portfolio/${showcase[2].id}`}
+              className="group relative overflow-hidden rounded-3xl"
+            >
+              <Image
+                src={showcase[2].image}
+                alt={showcase[2].title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/0 to-transparent" />
+              <p className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white">
+                {showcase[2].title}
+              </p>
+            </Link>
           </motion.div>
 
           {/* Right - Content */}
@@ -47,16 +84,9 @@ export default function AboutSection() {
               <span className="text-primary-600">Works for You</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-dark/60">
-              Theoraux is a software development company dedicated to creating
-              intelligent, tailored solutions for individuals and businesses. We
-              don&apos;t believe in one-size-fits-all — every project we take on
-              is custom-built to solve your unique challenges.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-dark/60">
-              From web applications and mobile apps to process automation and
-              custom systems, our team combines technical expertise with a deep
-              understanding of business needs to deliver software that truly
-              makes a difference.
+              We don&apos;t do one-size-fits-all. Every web app, mobile app, and
+              automation system we ship is custom-built around how your
+              business actually works.
             </p>
             <div className="mt-8">
               <Button href="/about" variant="outline">

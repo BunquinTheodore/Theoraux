@@ -2,10 +2,19 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Button from "@/components/ui/Button";
 import { portfolioProjects } from "@/lib/data";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+
+const spanClasses = [
+  "lg:col-span-2 lg:row-span-2",
+  "lg:col-span-1 lg:row-span-1",
+  "lg:col-span-1 lg:row-span-1",
+];
+
+const heightClasses = ["h-[280px] lg:h-full", "h-[260px]", "h-[260px]"];
 
 export default function PortfolioSection() {
   const featured = portfolioProjects.slice(0, 3);
@@ -13,12 +22,8 @@ export default function PortfolioSection() {
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          label="Our Work"
-          title="Featured Projects"
-          description="A selection of projects that showcase our expertise and the results we deliver for our clients."
-        />
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <SectionHeader label="Our Work" title="Selected Projects" />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:grid-rows-2">
           {featured.map((project, index) => (
             <motion.div
               key={project.id}
@@ -26,35 +31,34 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group overflow-hidden rounded-2xl bg-light transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className={`${spanClasses[index]} ${heightClasses[index]}`}
             >
-              <div className="relative h-56 overflow-hidden">
+              <Link
+                href={`/portfolio/${project.id}`}
+                className="group relative block h-full w-full overflow-hidden rounded-3xl"
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              </div>
-              <div className="p-6">
-                <div className="mb-3 flex flex-wrap gap-2">
-                  {project.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-600"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/10 to-transparent" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary-300">
+                    {project.category}
+                  </p>
+                  <div className="mt-1 flex items-end justify-between gap-3">
+                    <h3 className="text-xl font-semibold text-white">
+                      {project.title}
+                    </h3>
+                    <ArrowUpRight
+                      className="mb-0.5 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      size={20}
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-dark">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-dark/60">
-                  {project.description}
-                </p>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

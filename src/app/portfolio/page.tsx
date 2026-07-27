@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { portfolioProjects } from "@/lib/data";
 import CTABanner from "@/components/sections/CTABanner";
 
@@ -78,37 +80,47 @@ export default function PortfolioPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group overflow-hidden rounded-2xl bg-light transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="mb-3 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-600"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <Link
+                    href={`/portfolio/${project.id}`}
+                    className="group block overflow-hidden rounded-2xl bg-light transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <div className="relative h-56 overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <h3 className="text-xl font-semibold text-dark">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-dark/50">
-                      Client: {project.client}
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-dark/60">
-                      {project.description}
-                    </p>
-                  </div>
+                    <div className="p-6">
+                      <div className="mb-3 flex flex-wrap gap-2">
+                        {project.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-600"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-xl font-semibold text-dark">
+                          {project.title}
+                        </h3>
+                        <ArrowUpRight
+                          size={18}
+                          className="mt-1 shrink-0 text-dark/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary-600"
+                        />
+                      </div>
+                      <p className="mt-2 text-sm text-dark/50">
+                        Client: {project.client}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-dark/60">
+                        {project.description}
+                      </p>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>

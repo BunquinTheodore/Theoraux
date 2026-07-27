@@ -63,11 +63,12 @@ export default function ServicesPage() {
               return (
                 <motion.div
                   key={service.id}
+                  id={service.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
+                  className="grid scroll-mt-28 grid-cols-1 items-center gap-12 lg:grid-cols-2"
                 >
                   <div className={!isEven ? "lg:order-2" : ""}>
                     <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary-600">

@@ -1,35 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { stats } from "@/lib/data";
+import Image from "next/image";
+import Link from "next/link";
+import { teamMembers } from "@/lib/data";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTABanner from "@/components/sections/CTABanner";
-import { Target, Eye, Heart, Lightbulb } from "lucide-react";
+import {
+  Target,
+  Eye,
+  Heart,
+  Lightbulb,
+  ShoppingCart,
+  Landmark,
+  Truck,
+  Users,
+  Building2,
+  Workflow,
+  ArrowUpRight,
+} from "lucide-react";
+
+const founder = teamMembers.find((m) => m.role.includes("Founder"))!;
+
+const industries = [
+  {
+    icon: ShoppingCart,
+    title: "E-Commerce & Retail",
+    description: "Storefronts, checkout, and inventory systems built to sell.",
+    projectId: "shopflow",
+  },
+  {
+    icon: Landmark,
+    title: "FinTech & Banking",
+    description: "Secure, compliant financial products people trust.",
+    projectId: "fintrack",
+  },
+  {
+    icon: Truck,
+    title: "Logistics & Supply Chain",
+    description: "Inventory and warehouse systems that cut costly errors.",
+    projectId: "stocksense",
+  },
+  {
+    icon: Users,
+    title: "SaaS & Sales Tech",
+    description: "CRMs and internal tools that sales teams actually use.",
+    projectId: "taskpulse",
+  },
+  {
+    icon: Building2,
+    title: "Corporate & Professional Services",
+    description: "Marketing sites and CMS platforms built to convert.",
+    projectId: "greenleaf",
+  },
+  {
+    icon: Workflow,
+    title: "Operations & Automation",
+    description: "Dashboards and workflows that remove manual busywork.",
+    projectId: "autoflow",
+  },
+];
 
 const values = [
   {
     icon: Target,
-    title: "Client-Focused",
+    title: "Discovery Before Code",
     description:
-      "Every decision we make is guided by what's best for our clients. Your success is our success.",
+      "Every engagement starts by mapping your actual workflow, not a generic template we force your business into.",
   },
   {
     icon: Lightbulb,
-    title: "Innovation-Driven",
+    title: "Proven Over Trendy",
     description:
-      "We stay at the cutting edge of technology to deliver solutions that give you a competitive advantage.",
+      "We build on technology that will still make sense in three years — not whatever framework is trending this month.",
   },
   {
     icon: Heart,
-    title: "Quality First",
+    title: "Measured, Not Vague",
     description:
-      "We never cut corners. Every line of code, every pixel, and every interaction is crafted with care.",
+      "Every project ships with real numbers attached — load times, conversion lifts, hours saved — not just \"it's done.\"",
   },
   {
     icon: Eye,
-    title: "Transparency",
+    title: "Fixed Timelines",
     description:
-      "Clear communication, honest timelines, and no surprises. We believe trust is built through openness.",
+      "You get a realistic delivery window upfront and weekly progress updates, not silence until the invoice.",
   },
 ];
 
@@ -72,14 +127,25 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative h-[400px] overflow-hidden rounded-3xl bg-gradient-to-br from-primary-500 to-primary-700">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="p-8 text-center">
-                    <p className="text-6xl font-bold">T</p>
-                    <p className="mt-4 text-xl font-medium opacity-80">
-                      Est. 2021
+              <div className="relative h-[400px] overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100">
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  fill
+                  className="object-contain object-top p-8"
+                />
+                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-dark">
+                      {founder.name}
+                    </p>
+                    <p className="text-xs text-dark/50">
+                      {founder.role}, Theoraux
                     </p>
                   </div>
+                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-primary-600 shadow-sm">
+                    Est. 2021
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -161,12 +227,8 @@ export default function AboutPage() {
       {/* Values */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            label="Our Values"
-            title="What Drives Us"
-            description="These core values guide everything we do, from how we write code to how we communicate with clients."
-          />
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeader label="Our Values" title="What Drives Us" />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -174,12 +236,17 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                className="rounded-3xl border border-gray-100 p-8 transition-all duration-300 hover:border-primary-200 hover:shadow-md"
               >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary-600">
-                  <value.icon size={28} />
+                <div className="flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                    <value.icon size={22} />
+                  </div>
+                  <span className="text-3xl font-bold text-gray-100">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
-                <h3 className="text-lg font-semibold text-dark">
+                <h3 className="mt-6 text-lg font-semibold text-dark">
                   {value.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-dark/60">
@@ -191,25 +258,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Industries */}
       <section className="bg-light py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 gap-8 sm:grid-cols-4"
-          >
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-4xl font-bold text-primary-600 sm:text-5xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-dark/60">{stat.label}</p>
-              </div>
+          <SectionHeader
+            label="Where We've Worked"
+            title="Industries We Know"
+          />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((industry, index) => (
+              <motion.div
+                key={industry.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <Link
+                  href={`/portfolio/${industry.projectId}`}
+                  className="group flex h-full flex-col rounded-3xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                      <industry.icon size={22} />
+                    </div>
+                    <ArrowUpRight
+                      size={18}
+                      className="text-dark/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary-600"
+                    />
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold text-dark">
+                    {industry.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-dark/60">
+                    {industry.description}
+                  </p>
+                </Link>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

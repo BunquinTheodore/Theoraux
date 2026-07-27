@@ -140,6 +140,17 @@ export const portfolioProjects = [
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
     client: "ShopFlow Retail",
+    timeline: "10 weeks",
+    techStack: ["Next.js", "Node.js", "Stripe", "PostgreSQL"],
+    challenge:
+      "ShopFlow Retail was running on an aging platform that couldn't handle their growing catalog. Checkout abandonment was high, inventory data was chronically out of sync across channels, and they could only accept a single payment method.",
+    approach:
+      "We rebuilt the storefront on a headless architecture with real-time inventory sync across warehouses, added support for multiple payment gateways, and cut checkout down to two steps. A custom admin dashboard gave the team live visibility into orders and stock.",
+    results: [
+      { metric: "45%", label: "Increase in online sales" },
+      { metric: "2", label: "Payment gateways integrated" },
+      { metric: "2-step", label: "Streamlined checkout flow" },
+    ],
   },
   {
     id: "taskpulse",
@@ -151,6 +162,17 @@ export const portfolioProjects = [
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
     client: "TaskPulse Inc.",
+    timeline: "14 weeks",
+    techStack: ["React", "Node.js", "PostgreSQL", "OpenAI API"],
+    challenge:
+      "TaskPulse's 200+ person sales team was tracking leads across spreadsheets and a patchwork of disconnected tools, so leads regularly fell through the cracks with no consistent way to prioritize follow-ups.",
+    approach:
+      "We built a custom CRM with automated lead scoring, a visual pipeline, and AI-assisted insights that surface which leads are worth calling first — replacing four disconnected tools with one system.",
+    results: [
+      { metric: "200+", label: "Sales agents onboarded" },
+      { metric: "4 → 1", label: "Tools consolidated into one system" },
+      { metric: "Real-time", label: "Lead scoring & pipeline visibility" },
+    ],
   },
   {
     id: "fintrack",
@@ -162,6 +184,17 @@ export const portfolioProjects = [
     image:
       "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?w=800&h=600&fit=crop",
     client: "FinTrack Financial",
+    timeline: "16 weeks",
+    techStack: ["React Native", "Node.js", "AWS", "Plaid API"],
+    challenge:
+      "FinTrack needed a secure, App Store-ready mobile banking app that could scale to tens of thousands of users without compromising on transaction security or speed.",
+    approach:
+      "We built a cross-platform app with biometric authentication, real-time transaction feeds, and built-in budget tracking, backed by a full security review before launch.",
+    results: [
+      { metric: "50,000+", label: "Active users" },
+      { metric: "99.9%", label: "Uptime since launch" },
+      { metric: "<2s", label: "Average transaction time" },
+    ],
   },
   {
     id: "stocksense",
@@ -173,6 +206,17 @@ export const portfolioProjects = [
     image:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop",
     client: "StockSense Logistics",
+    timeline: "12 weeks",
+    techStack: ["Next.js", "Node.js", "PostgreSQL", "Barcode API"],
+    challenge:
+      "StockSense was managing multiple warehouses with manual counts and spreadsheets, leading to frequent stock discrepancies and delayed reorders.",
+    approach:
+      "We built a barcode-driven inventory system with automated reorder triggers and multi-warehouse support, giving the operations team a single source of truth for stock levels.",
+    results: [
+      { metric: "90%", label: "Reduction in stock discrepancies" },
+      { metric: "Multi-site", label: "Warehouse support" },
+      { metric: "Automated", label: "Reorder triggers" },
+    ],
   },
   {
     id: "greenleaf",
@@ -184,6 +228,17 @@ export const portfolioProjects = [
     image:
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
     client: "GreenLeaf Holdings",
+    timeline: "8 weeks",
+    techStack: ["Next.js", "Sanity CMS", "Tailwind CSS"],
+    challenge:
+      "GreenLeaf's old site was slow, hard to update, and only available in one language, which limited their reach with international clients.",
+    approach:
+      "We designed and built a fast, multilingual corporate site on a custom CMS so their team could publish updates without a developer, paired with a redesigned visual identity focused on conversion.",
+    results: [
+      { metric: "60%", label: "Increase in leads (3 months)" },
+      { metric: "Multilingual", label: "CMS-driven content" },
+      { metric: "<1s", label: "Page load time" },
+    ],
   },
   {
     id: "autoflow",
@@ -195,6 +250,17 @@ export const portfolioProjects = [
     image:
       "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=600&fit=crop",
     client: "AutoFlow Systems",
+    timeline: "10 weeks",
+    techStack: ["React", "Node.js", "WebSockets", "PostgreSQL"],
+    challenge:
+      "AutoFlow's operations team was manually monitoring dozens of automated workflows with no central view, spending hours each week chasing down failures.",
+    approach:
+      "We built a real-time monitoring dashboard with a drag-and-drop workflow builder, smart alerting, and performance analytics so the team can build, watch, and fix workflows from one screen.",
+    results: [
+      { metric: "120+", label: "Hours saved monthly" },
+      { metric: "Real-time", label: "Workflow monitoring" },
+      { metric: "Drag-and-drop", label: "Workflow builder" },
+    ],
   },
 ];
 
@@ -204,116 +270,40 @@ export const testimonials = [
     name: "Jennifer Martinez",
     role: "CEO",
     company: "ShopFlow Retail",
+    projectId: "shopflow",
     quote:
-      "Theoraux transformed our entire online presence. The e-commerce platform they built increased our sales by 45% in just three months. Their team truly understood our business needs and delivered beyond expectations.",
+      "Theoraux built us an e-commerce platform that increased online sales by 45% in just three months.",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face",
   },
   {
     id: 2,
     name: "Robert Chen",
     role: "CTO",
     company: "TaskPulse Inc.",
+    projectId: "taskpulse",
     quote:
-      "Working with Theoraux was a game-changer. The custom CRM they developed perfectly aligned with our sales workflow. Their attention to detail and technical expertise is outstanding.",
+      "The CRM Theoraux built perfectly aligned with our sales workflow — their technical expertise is outstanding.",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
   },
   {
     id: 3,
     name: "Amanda Reyes",
     role: "Operations Director",
     company: "AutoFlow Systems",
+    projectId: "autoflow",
     quote:
-      "The automation dashboard Theoraux built for us eliminated 120+ hours of manual work every month. It's intuitive, reliable, and has completely changed how we operate. Highly recommended!",
+      "The automation dashboard Theoraux built eliminated 120+ hours of manual work every month.",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face",
   },
   {
     id: 4,
     name: "Michael Thompson",
     role: "Founder",
     company: "GreenLeaf Holdings",
+    projectId: "greenleaf",
     quote:
-      "Theoraux didn't just build us a website — they built us a lead generation machine. Our new site looks incredible and has directly contributed to a 60% increase in qualified leads.",
+      "Theoraux didn't just build us a site — they built us a lead generation machine.",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
-  },
-];
-
-export const pricingTiers = [
-  {
-    id: "starter",
-    name: "Starter",
-    price: "$499",
-    period: "starting from",
-    description:
-      "Perfect for small businesses and personal projects that need a professional web presence.",
-    features: [
-      "Up to 5 pages",
-      "Responsive design",
-      "Basic SEO setup",
-      "Contact form integration",
-      "1 round of revisions",
-      "2 weeks delivery",
-    ],
-    notIncluded: [
-      "Custom animations",
-      "CMS integration",
-      "E-commerce functionality",
-      "Priority support",
-    ],
-    highlighted: false,
-    cta: "Get Started",
-  },
-  {
-    id: "professional",
-    name: "Professional",
-    price: "$1,499",
-    period: "starting from",
-    description:
-      "Ideal for growing businesses that need a full-featured web application or system.",
-    features: [
-      "Up to 15 pages",
-      "Custom UI/UX design",
-      "Advanced SEO optimization",
-      "CMS integration",
-      "Custom animations & interactions",
-      "API integrations",
-      "3 rounds of revisions",
-      "4 weeks delivery",
-      "30 days post-launch support",
-    ],
-    notIncluded: ["Mobile app development", "24/7 priority support"],
-    highlighted: true,
-    cta: "Most Popular",
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: "$3,999",
-    period: "starting from",
-    description:
-      "For organizations that need a complete, custom-built system with ongoing support.",
-    features: [
-      "Unlimited pages & features",
-      "Full custom software development",
-      "Mobile app included",
-      "Advanced integrations",
-      "Process automation",
-      "Custom admin dashboard",
-      "Unlimited revisions",
-      "Dedicated project manager",
-      "24/7 priority support",
-      "90 days post-launch support",
-    ],
-    notIncluded: [],
-    highlighted: false,
-    cta: "Contact Us",
   },
 ];
 
@@ -551,8 +541,6 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/team", label: "Team" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
 ];

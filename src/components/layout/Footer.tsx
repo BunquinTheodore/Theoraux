@@ -47,7 +47,7 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="mt-4 space-y-3">
-              {["About", "Services", "Portfolio", "Pricing", "Blog", "Contact"].map(
+              {["About", "Services", "Portfolio", "Blog", "Contact"].map(
                 (link) => (
                   <li key={link}>
                     <Link

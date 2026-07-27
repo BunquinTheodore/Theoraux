@@ -2,8 +2,40 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+  CheckCircle2,
+  ShieldCheck,
+} from "lucide-react";
 import Button from "@/components/ui/Button";
+import SectionHeader from "@/components/ui/SectionHeader";
+
+const faqs = [
+  {
+    question: "How soon can you start?",
+    answer:
+      "Most engagements kick off within 1-2 weeks of our discovery call, depending on project scope and our current schedule.",
+  },
+  {
+    question: "I don't have a technical spec — is that a problem?",
+    answer:
+      "Not at all. Most clients come to us with a business problem, not a spec. The free consultation is where we help translate that into a concrete plan.",
+  },
+  {
+    question: "Do you offer support after launch?",
+    answer:
+      "Yes. We offer ongoing maintenance and support packages to keep your product running smoothly well after launch.",
+  },
+  {
+    question: "Will you sign an NDA?",
+    answer:
+      "Yes. We're glad to sign an NDA before diving into specifics if your project involves sensitive or proprietary information.",
+  },
+];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -67,15 +99,16 @@ export default function ContactPage() {
             className="mx-auto max-w-3xl text-center"
           >
             <span className="inline-block rounded-full bg-primary-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-600">
-              Contact Us
+              Book a Free Consultation
             </span>
             <h1 className="mt-4 text-4xl font-bold text-dark sm:text-5xl">
               Let&apos;s Build Something{" "}
               <span className="text-primary-600">Amazing</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-dark/60">
-              Ready to start your project? Book a free consultation or send us a
-              message and we&apos;ll get back to you within 24 hours.
+              Tell us about your project and we&apos;ll get back to you within
+              24 hours with next steps — no sales pressure, just a clear plan
+              for how we&apos;d help.
             </p>
           </motion.div>
         </div>
@@ -106,7 +139,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Email</p>
-                    <p className="text-dark/60">bunquintheodore@gmail.com</p>
+                    <a
+                      href="mailto:bunquintheodore@gmail.com"
+                      className="text-dark/60 transition-colors hover:text-primary-600"
+                    >
+                      bunquintheodore@gmail.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -115,7 +153,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Phone</p>
-                    <p className="text-dark/60">(+63) 962 993 5762</p>
+                    <a
+                      href="tel:+639629935762"
+                      className="text-dark/60 transition-colors hover:text-primary-600"
+                    >
+                      (+63) 962 993 5762
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -124,7 +167,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Location</p>
-                    <p className="text-dark/60">Philippines</p>
+                    <p className="text-dark/60">Philippines · Remote-friendly worldwide</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -133,7 +176,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark">Response Time</p>
-                    <p className="text-dark/60">Within 24 hours</p>
+                    <p className="text-dark/60">Within 24 hours, guaranteed</p>
                   </div>
                 </div>
               </div>
@@ -289,16 +332,56 @@ export default function ContactPage() {
                     {submitError && (
                       <p className="mt-3 text-sm text-red-600">{submitError}</p>
                     )}
-                    <p className="mt-3 text-xs text-dark/50">
-                      First-time setup: FormSubmit will send an activation email
-                      to bunquintheodore@gmail.com after your first test
-                      submission. Open that email once and click Activate to
-                      start receiving all future messages.
-                    </p>
+                    <div className="mt-4 flex items-start gap-2 text-xs text-dark/50">
+                      <ShieldCheck
+                        size={16}
+                        className="mt-0.5 shrink-0 text-primary-500"
+                      />
+                      <p>
+                        Your details are kept confidential and are only used to
+                        respond to your inquiry. No spam, ever.
+                      </p>
+                    </div>
                   </div>
                 </form>
               )}
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-light py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            label="Common Questions"
+            title="Before You Reach Out"
+            description="A few things prospective clients usually want to know."
+          />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={faq.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="rounded-3xl bg-white p-6 shadow-sm"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={20}
+                    className="mt-0.5 shrink-0 text-primary-600"
+                  />
+                  <div>
+                    <p className="font-semibold text-dark">{faq.question}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-dark/60">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
