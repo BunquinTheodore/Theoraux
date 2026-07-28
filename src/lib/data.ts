@@ -637,6 +637,51 @@ Investing in UI/UX design isn't just about aesthetics — it directly impacts bu
   },
 ];
 
+export const network = [
+  {
+    id: 1,
+    name: "Aaros Cabrera",
+    role: "CEO",
+    company: "Bluemoon Philippines",
+    industry: "Consumer / Services",
+  },
+  {
+    id: 2,
+    name: "Troy Morales",
+    role: "Founder",
+    company: "OWWO Chicken",
+    industry: "Food & Beverage",
+  },
+  {
+    id: 3,
+    name: "Eric Rontaqiou",
+    role: "CEO",
+    company: "PocketDevs",
+    industry: "Software / Dev Tools",
+  },
+  {
+    id: 4,
+    name: "Bryl Lim",
+    role: "Software & AI Engineer",
+    company: "PocketDevs",
+    industry: "Software / AI",
+  },
+  {
+    id: 5,
+    name: "Carl Harvey Derez",
+    role: "Founder",
+    company: "Mazal",
+    industry: "Fintech / Platforms",
+  },
+  {
+    id: 6,
+    name: "Ian Xavier",
+    role: "Co-Founder",
+    company: "Alpha Hideout",
+    industry: "Community / Gaming",
+  },
+];
+
 export const stats = [
   { value: "25+", label: "Projects Delivered" },
   { value: "8+", label: "Happy Clients" },

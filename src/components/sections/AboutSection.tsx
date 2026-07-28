@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { stats, portfolioProjects } from "@/lib/data";
+import { portfolioProjects } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 
@@ -95,24 +95,6 @@ export default function AboutSection() {
             </div>
           </motion.div>
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 grid grid-cols-2 gap-8 rounded-3xl bg-light p-8 sm:grid-cols-4 lg:p-12"
-        >
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-primary-600 sm:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-sm text-dark/60">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
