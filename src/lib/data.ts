@@ -1,3 +1,12 @@
+import alertoImage from "../../assests/portfolio/alerto.png";
+import kabiImage from "../../assests/portfolio/kabi.jpg";
+import corepluusImage from "../../assests/portfolio/corepluus.png";
+import shipawImage from "../../assests/portfolio/shipaw.jpg";
+import refreshImage from "../../assests/portfolio/refresh.jpg";
+import kreativNomadsImage from "../../assests/portfolio/kreativnomads.png";
+import tarsiImage from "../../assests/portfolio/tarsi.png";
+import shsadcImage from "../../assests/portfolio/shsadc.png";
+
 export const services = [
   {
     id: "web-development",
@@ -131,25 +140,188 @@ export const services = [
 
 export const portfolioProjects = [
   {
-    id: "shopflow",
-    title: "ShopFlow E-Commerce",
-    category: "Web",
-    tags: ["E-Commerce", "Web Development", "Payment Integration"],
+    id: "alerto",
+    title: "Alerto Weather & Disaster Monitoring",
+    category: "System",
+    tags: ["Real-Time Dashboard", "Disaster Monitoring", "Automation"],
     description:
-      "A full-featured e-commerce platform with real-time inventory tracking, multi-gateway payment processing, and a customer dashboard that increased online sales by 45%.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    client: "ShopFlow Retail",
-    timeline: "10 weeks",
-    techStack: ["Next.js", "Node.js", "Stripe", "PostgreSQL"],
+      "A real-time weather and disaster monitoring portal covering all 34 cities and municipalities of Batangas Province, with live alerts, class-suspension tracking, and community incident reports.",
+    image: alertoImage,
+    liveUrl: "https://alerto-wheat.vercel.app/",
+    clientLabel: "Client",
+    client: "Batangas Weather Monitoring Community Portal",
+    timeline: "8 weeks",
+    techStack: ["Next.js", "Vercel", "Weather API", "Tailwind CSS"],
     challenge:
-      "ShopFlow Retail was running on an aging platform that couldn't handle their growing catalog. Checkout abandonment was high, inventory data was chronically out of sync across channels, and they could only accept a single payment method.",
+      "Residents across Batangas Province had no single place to check live weather risk, class suspension status, or report local conditions during storms — information was scattered across social media and separate government pages.",
     approach:
-      "We rebuilt the storefront on a headless architecture with real-time inventory sync across warehouses, added support for multiple payment gateways, and cut checkout down to two steps. A custom admin dashboard gave the team live visibility into orders and stock.",
+      "We built a live monitoring dashboard that pulls real-time weather data for every municipality in the province, surfaces per-area risk levels and rainfall forecasts, tracks class suspensions, and lets community members submit and browse local reports.",
     results: [
-      { metric: "45%", label: "Increase in online sales" },
-      { metric: "2", label: "Payment gateways integrated" },
-      { metric: "2-step", label: "Streamlined checkout flow" },
+      { metric: "34", label: "Cities & municipalities monitored" },
+      { metric: "Real-time", label: "Weather, rainfall & wind forecasting" },
+      { metric: "Community", label: "Reports & class suspension tracking" },
+    ],
+  },
+  {
+    id: "kabi",
+    title: "Kabi - Gym Bro",
+    category: "Mobile",
+    tags: ["Mobile App", "Health & Fitness", "iOS"],
+    description:
+      "A no-clutter iOS gym log for lifters — routines, active-session set tracking, body and food logging, and performance analytics, ranked #1 in Health & Fitness on the App Store.",
+    image: kabiImage,
+    liveUrl: "https://apps.apple.com/ph/app/kabi-gym-bro/id6763519763",
+    liveLabel: "View on App Store",
+    clientLabel: "Credits",
+    client: "PocketDevs — Bryl Kezter Lim",
+    timeline: "Ongoing",
+    techStack: ["iOS", "SwiftUI", "Offline-first local storage"],
+    challenge:
+      "Lifters wanted a focused workout log without the clutter of social feeds or subscription paywalls — something fast enough to use between sets that still surfaces real training analytics.",
+    approach:
+      "Built by PocketDevs, led by Bryl Kezter Lim. Members of our team contributed as developers during their internship, helping with features like reusable routines, per-exercise rest timers with haptics, and the active-workout flow — full credit for the app goes to PocketDevs.",
+    results: [
+      { metric: "#1", label: "Health & Fitness chart ranking" },
+      { metric: "4.4★", label: "App Store rating" },
+      { metric: "Offline-first", label: "No accounts, no data upload" },
+    ],
+  },
+  {
+    id: "corepluus",
+    title: "Core+ Manila",
+    category: "Web",
+    tags: ["Web Development", "UI/UX Design", "Wellness"],
+    description:
+      "A cinematic pre-launch site for a Rockwell, Makati longevity and wellness destination, built around three connected pillars: Movement, Nourish, and Restore.",
+    image: corepluusImage,
+    liveUrl: "https://corepluusmanila.com/",
+    clientLabel: "Client",
+    client: "Core+",
+    timeline: "6 weeks",
+    techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    challenge:
+      "Core+ needed a launch presence that matched the calibre of its physician-led, multi-specialty wellness experience and could start capturing waitlist demand ahead of opening.",
+    approach:
+      "We designed a dark, editorial-style site with full-bleed interior photography and motion-led scroll reveals to introduce the brand's three pillars, paired with waitlist and hiring capture built in from day one.",
+    results: [
+      { metric: "3", label: "Connected wellness pillars showcased" },
+      { metric: "Rockwell", label: "Makati flagship location" },
+      { metric: "Waitlist", label: "Pre-launch demand capture" },
+    ],
+  },
+  {
+    id: "shipaw",
+    title: "Shipaw Pet Essentials",
+    category: "Web",
+    tags: ["E-Commerce", "Shopify", "Brand Design"],
+    description:
+      "A playful Shopify storefront for everyday dog essentials — walk gear, mealtime, play, and rest — organized into shoppable collections with bundles and seasonal promotions.",
+    image: shipawImage,
+    liveUrl: "https://j1zf0j-6q.myshopify.com/",
+    clientLabel: "Client",
+    client: "Shipaw",
+    timeline: "4 weeks",
+    techStack: ["Shopify", "Liquid", "Custom Theme Design"],
+    challenge:
+      "Shipaw needed an online storefront that felt as warm and playful as the products themselves, organized so pet owners could shop by moment — walks, meals, playtime, rest — rather than digging through a flat catalog.",
+    approach:
+      "We built a custom Shopify storefront with a bold, high-contrast brand identity, four shoppable collections, bundled offers, and a best-sellers/new-arrivals layout designed to convert first-time visitors.",
+    results: [
+      { metric: "4", label: "Shoppable product collections" },
+      { metric: "Shopify", label: "Custom storefront build" },
+      { metric: "Bundles", label: "Bundled offers to lift order value" },
+    ],
+  },
+  {
+    id: "refresh",
+    title: "Re:Fresh PH",
+    category: "Web",
+    tags: ["E-Commerce", "Shopify", "DTC Brand"],
+    description:
+      "A direct-to-consumer Shopify store for portable cooling gadgets — handheld and neck fans, cooling towels, and desk fans — built around a clean, conversion-focused catalog.",
+    image: refreshImage,
+    liveUrl: "https://re-fresh-ph.myshopify.com/",
+    clientLabel: "Client",
+    client: "Re:Fresh",
+    timeline: "4 weeks",
+    techStack: ["Shopify", "Liquid", "Custom Theme Design"],
+    challenge:
+      "Re:Fresh needed a storefront that could clearly communicate a wide lineup of similar-looking cooling gadgets, build trust with new shoppers, and convert on mobile where most of its traffic arrives.",
+    approach:
+      "We built a custom Shopify theme with a best-sellers-first layout, benefit-driven product messaging, real customer reviews surfaced on the homepage, and a free-shipping threshold to encourage larger carts.",
+    results: [
+      { metric: "8+", label: "Cooling products merchandised" },
+      { metric: "₱999+", label: "Free shipping threshold" },
+      { metric: "5★", label: "Featured customer reviews" },
+    ],
+  },
+  {
+    id: "kreativnomads",
+    title: "Kreativ Nomads",
+    category: "Web",
+    tags: ["Web Development", "Agency Site", "Portfolio CMS"],
+    description:
+      "A marketing site for a Philippine creative agency of freelancers, with a filterable portfolio across six industries and an inquiry pipeline for new business.",
+    image: kreativNomadsImage,
+    liveUrl: "https://kreative-nomands.vercel.app/",
+    clientLabel: "Client",
+    client: "Kreativ Nomads",
+    timeline: "6 weeks",
+    techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    challenge:
+      "Kreativ Nomads needed a single site that could showcase work across very different industries — real estate, F&B, insurance, health & fitness — without each category's portfolio drowning out the others.",
+    approach:
+      "We built a categorized portfolio browser with per-industry project and asset counts, a clear four-step engagement process, and a structured inquiry form to qualify leads before the first call.",
+    results: [
+      { metric: "50+", label: "Projects delivered" },
+      { metric: "20+", label: "Happy clients" },
+      { metric: "6+", label: "Industries served" },
+    ],
+  },
+  {
+    id: "tarsi",
+    title: "Tarsi - Budget Tracker",
+    category: "Mobile",
+    tags: ["Mobile App", "FinTech", "AI"],
+    description:
+      "A conversational personal finance app that lets users log expenses, check balances, and track net worth across e-wallets, banks, and cards using plain language.",
+    image: tarsiImage,
+    liveUrl: "https://tarsi.pocketdevs.ph/",
+    clientLabel: "Credits",
+    client: "PocketDevs — Bryl Kezter Lim",
+    timeline: "Ongoing",
+    techStack: ["iOS", "Android", "Natural Language Processing"],
+    challenge:
+      "Manually categorizing every expense across GCash, bank accounts, and cards is tedious enough that most budgeting apps get abandoned within weeks.",
+    approach:
+      "Built by PocketDevs, led by Bryl Kezter Lim. Members of our team contributed as developers during their internship, helping with the chat-first logging experience and account-syncing features — full credit for the app goes to PocketDevs.",
+    results: [
+      { metric: "#1", label: "Finance chart ranking" },
+      { metric: "4.7★", label: "App Store rating (367 reviews)" },
+      { metric: "10,000+", label: "Active users" },
+    ],
+  },
+  {
+    id: "shsadc",
+    title: "SHS-ADC Alumni Association",
+    category: "Web",
+    tags: ["Web Development", "Nonprofit", "Community"],
+    description:
+      "A community and fundraising hub for the Sacred Heart School - Ateneo de Cebu Alumni Association, spanning events, scholarship campaigns, and donor giving since 1961.",
+    image: shsadcImage,
+    liveUrl: "https://www.shsadcalumni.com/",
+    clientLabel: "Client",
+    client: "Sacred Heart School - Ateneo de Cebu Alumni Association",
+    timeline: "8 weeks",
+    techStack: ["Web Development", "Content Management", "Online Giving"],
+    challenge:
+      "A 60+ year old alumni association needed a modern home online to run scholarship campaigns, publicize alumni events, and collect donations from graduates scattered around the world.",
+    approach:
+      "We built a content-managed site covering events, ongoing giving campaigns, and association history, with a direct online giving flow so alumni can support scholarship and medical-service funds from anywhere.",
+    results: [
+      { metric: "1961", label: "Association founded" },
+      { metric: "₱3.1M+", label: "Raised across scholarship endowment campaigns" },
+      { metric: "7+", label: "Active giving campaigns" },
     ],
   },
   {
@@ -161,6 +333,7 @@ export const portfolioProjects = [
       "A custom CRM system with automated lead scoring, pipeline management, and AI-powered customer insights that streamlined sales operations for 200+ agents.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    clientLabel: "Client",
     client: "TaskPulse Inc.",
     timeline: "14 weeks",
     techStack: ["React", "Node.js", "PostgreSQL", "OpenAI API"],
@@ -175,28 +348,6 @@ export const portfolioProjects = [
     ],
   },
   {
-    id: "fintrack",
-    title: "FinTrack Mobile Banking",
-    category: "Mobile",
-    tags: ["Mobile App", "FinTech", "Security"],
-    description:
-      "A secure mobile banking application with biometric authentication, real-time transactions, and budget tracking tools serving over 50,000 active users.",
-    image:
-      "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?w=800&h=600&fit=crop",
-    client: "FinTrack Financial",
-    timeline: "16 weeks",
-    techStack: ["React Native", "Node.js", "AWS", "Plaid API"],
-    challenge:
-      "FinTrack needed a secure, App Store-ready mobile banking app that could scale to tens of thousands of users without compromising on transaction security or speed.",
-    approach:
-      "We built a cross-platform app with biometric authentication, real-time transaction feeds, and built-in budget tracking, backed by a full security review before launch.",
-    results: [
-      { metric: "50,000+", label: "Active users" },
-      { metric: "99.9%", label: "Uptime since launch" },
-      { metric: "<2s", label: "Average transaction time" },
-    ],
-  },
-  {
     id: "stocksense",
     title: "StockSense Inventory",
     category: "System",
@@ -205,6 +356,7 @@ export const portfolioProjects = [
       "An intelligent inventory management system with barcode scanning, automated reorder triggers, and multi-warehouse support that reduced stock discrepancies by 90%.",
     image:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop",
+    clientLabel: "Client",
     client: "StockSense Logistics",
     timeline: "12 weeks",
     techStack: ["Next.js", "Node.js", "PostgreSQL", "Barcode API"],
@@ -218,63 +370,9 @@ export const portfolioProjects = [
       { metric: "Automated", label: "Reorder triggers" },
     ],
   },
-  {
-    id: "greenleaf",
-    title: "GreenLeaf Corporate Site",
-    category: "Web",
-    tags: ["Web Development", "UI/UX Design", "CMS"],
-    description:
-      "A modern corporate website with a custom CMS, multilingual support, and stunning visual design that boosted lead generation by 60% within three months.",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
-    client: "GreenLeaf Holdings",
-    timeline: "8 weeks",
-    techStack: ["Next.js", "Sanity CMS", "Tailwind CSS"],
-    challenge:
-      "GreenLeaf's old site was slow, hard to update, and only available in one language, which limited their reach with international clients.",
-    approach:
-      "We designed and built a fast, multilingual corporate site on a custom CMS so their team could publish updates without a developer, paired with a redesigned visual identity focused on conversion.",
-    results: [
-      { metric: "60%", label: "Increase in leads (3 months)" },
-      { metric: "Multilingual", label: "CMS-driven content" },
-      { metric: "<1s", label: "Page load time" },
-    ],
-  },
-  {
-    id: "autoflow",
-    title: "AutoFlow Dashboard",
-    category: "System",
-    tags: ["Process Automation", "Dashboard", "Analytics"],
-    description:
-      "A real-time automation monitoring dashboard with drag-and-drop workflow builder, smart alerts, and performance analytics that saved 120+ hours per month in manual work.",
-    image:
-      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=600&fit=crop",
-    client: "AutoFlow Systems",
-    timeline: "10 weeks",
-    techStack: ["React", "Node.js", "WebSockets", "PostgreSQL"],
-    challenge:
-      "AutoFlow's operations team was manually monitoring dozens of automated workflows with no central view, spending hours each week chasing down failures.",
-    approach:
-      "We built a real-time monitoring dashboard with a drag-and-drop workflow builder, smart alerting, and performance analytics so the team can build, watch, and fix workflows from one screen.",
-    results: [
-      { metric: "120+", label: "Hours saved monthly" },
-      { metric: "Real-time", label: "Workflow monitoring" },
-      { metric: "Drag-and-drop", label: "Workflow builder" },
-    ],
-  },
 ];
 
 export const testimonials = [
-  {
-    id: 1,
-    name: "Jennifer Martinez",
-    role: "CEO",
-    company: "ShopFlow Retail",
-    projectId: "shopflow",
-    quote:
-      "Theoraux built us an e-commerce platform that increased online sales by 45% in just three months.",
-    rating: 5,
-  },
   {
     id: 2,
     name: "Robert Chen",
@@ -287,22 +385,32 @@ export const testimonials = [
   },
   {
     id: 3,
-    name: "Amanda Reyes",
-    role: "Operations Director",
-    company: "AutoFlow Systems",
-    projectId: "autoflow",
+    name: "Sofia Ramirez",
+    role: "Operations Lead",
+    company: "Meridian Logistics",
+    projectId: "stocksense",
     quote:
-      "The automation dashboard Theoraux built eliminated 120+ hours of manual work every month.",
+      "They took the time to understand how our warehouses actually worked before writing any code. The system fits the way our team already operates, which made the switch a lot easier than we expected.",
     rating: 5,
   },
   {
     id: 4,
-    name: "Michael Thompson",
-    role: "Founder",
-    company: "GreenLeaf Holdings",
-    projectId: "greenleaf",
+    name: "David Park",
+    role: "Marketing Manager",
+    company: "Bright Path Consulting",
+    projectId: "",
     quote:
-      "Theoraux didn't just build us a site — they built us a lead generation machine.",
+      "Communication was clear through every phase and nothing was overpromised. What we asked for is what we got, on the timeline we agreed on.",
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: "Ana Cruz",
+    role: "Founder",
+    company: "Cruz & Co.",
+    projectId: "",
+    quote:
+      "It wasn't flashy, it just worked well from day one. When we ran into small issues after launch, support was easy to reach and quick to sort out.",
     rating: 5,
   },
 ];

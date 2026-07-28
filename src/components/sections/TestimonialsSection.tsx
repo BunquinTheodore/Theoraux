@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
     <section className="bg-light py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader label="Testimonials" title="What Our Clients Say" />
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-6">
           {testimonials.map((testimonial, index) => {
             const project = portfolioProjects.find(
               (p) => p.id === testimonial.projectId
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="h-full"
+                className="h-full w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
               >
                 <Link
                   href={

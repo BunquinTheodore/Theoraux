@@ -9,14 +9,23 @@ import { portfolioProjects } from "@/lib/data";
 import CTABanner from "@/components/sections/CTABanner";
 
 const categories = ["All", "Web", "Mobile", "System"];
+const PAGE_SIZE = 6;
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const filtered =
     activeCategory === "All"
       ? portfolioProjects
       : portfolioProjects.filter((p) => p.category === activeCategory);
+
+  const visible = showAll ? filtered : filtered.slice(0, PAGE_SIZE);
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setShowAll(false);
+  };
 
   return (
     <>
@@ -52,7 +61,7 @@ export default function PortfolioPage() {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => handleCategoryChange(category)}
                 className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
                   activeCategory === category
                     ? "bg-primary-600 text-white"
@@ -74,7 +83,7 @@ export default function PortfolioPage() {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
-              {filtered.map((project, index) => (
+              {visible.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -113,9 +122,11 @@ export default function PortfolioPage() {
                           className="mt-1 shrink-0 text-dark/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary-600"
                         />
                       </div>
-                      <p className="mt-2 text-sm text-dark/50">
-                        Client: {project.client}
-                      </p>
+                      {project.clientLabel === "Credits" && (
+                        <p className="mt-2 text-sm text-dark/50">
+                          {project.clientLabel}: {project.client}
+                        </p>
+                      )}
                       <p className="mt-2 text-sm leading-relaxed text-dark/60">
                         {project.description}
                       </p>
@@ -125,6 +136,17 @@ export default function PortfolioPage() {
               ))}
             </motion.div>
           </AnimatePresence>
+
+          {filtered.length > PAGE_SIZE && (
+            <div className="mt-12 text-center">
+              <button
+                onClick={() => setShowAll((prev) => !prev)}
+                className="inline-flex items-center justify-center rounded-full border-2 border-primary-600 px-8 py-3 text-sm font-semibold text-primary-600 transition-all hover:bg-primary-600 hover:text-white"
+              >
+                {showAll ? "See Less" : "See All"}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { portfolioProjects } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import CTABanner from "@/components/sections/CTABanner";
@@ -52,10 +52,26 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
           {project.title}
         </h1>
         <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-dark/50">
-          <span>Client: {project.client}</span>
-          <span>&middot;</span>
+          {project.clientLabel === "Credits" && (
+            <>
+              <span>{project.clientLabel}: {project.client}</span>
+              <span>&middot;</span>
+            </>
+          )}
           <span>Timeline: {project.timeline}</span>
         </div>
+
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-primary-600 px-6 py-2.5 text-sm font-semibold text-primary-600 transition-all hover:bg-primary-600 hover:text-white"
+          >
+            {project.liveLabel ?? "Visit Live Site"}
+            <ExternalLink size={15} />
+          </a>
+        )}
 
         <div className="relative mt-10 h-[300px] overflow-hidden rounded-2xl sm:h-[420px]">
           <Image
@@ -65,18 +81,6 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
             className="object-cover"
             priority
           />
-        </div>
-
-        {/* Results strip */}
-        <div className="mt-10 grid grid-cols-1 gap-6 rounded-3xl bg-light p-8 sm:grid-cols-3 lg:p-10">
-          {project.results.map((result) => (
-            <div key={result.label} className="text-center sm:text-left">
-              <p className="text-3xl font-bold text-primary-600 sm:text-4xl">
-                {result.metric}
-              </p>
-              <p className="mt-2 text-sm text-dark/60">{result.label}</p>
-            </div>
-          ))}
         </div>
 
         {/* Challenge & Approach */}
