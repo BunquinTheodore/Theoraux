@@ -93,36 +93,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Join Us */}
-      <section className="bg-light py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <h2 className="text-3xl font-bold text-dark sm:text-4xl">
-              Want to Join Our Team?
-            </h2>
-            <p className="mt-4 text-lg text-dark/60">
-              We&apos;re always looking for talented people who share our passion
-              for building great software. If that sounds like you, we&apos;d
-              love to hear from you.
-            </p>
-            <div className="mt-8">
-              <a
-                href="mailto:hello@theoraux.com"
-                className="inline-flex items-center rounded-full bg-primary-600 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-700 hover:shadow-lg"
-              >
-                Get in Touch
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       <CTABanner />
     </>
   );
