@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Mail,
   Phone,
@@ -6,6 +7,7 @@ import {
   Linkedin,
   Facebook,
 } from "lucide-react";
+import logo from "../../../assests/logo.png";
 
 export default function Footer() {
   return (
@@ -14,7 +16,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-primary-400">Theoraux</h3>
+            <Image
+              src={logo}
+              alt="Theoraux"
+              className="h-10 w-auto brightness-125"
+            />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               Intelligent Automation. Streamline operation &amp; cut task to
               unlock efficiency and drive growth.

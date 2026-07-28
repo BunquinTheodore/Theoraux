@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
+import logo from "../../../assests/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +31,12 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-primary-600">
-              Theoraux
-            </span>
+            <Image
+              src={logo}
+              alt="Theoraux"
+              className="h-11 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
