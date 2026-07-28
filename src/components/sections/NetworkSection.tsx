@@ -48,7 +48,7 @@ const stats = [
 
 export default function NetworkSection() {
   return (
-    <section className="bg-light py-24">
+    <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ export default function NetworkSection() {
 
           {/* Center hub */}
           <div
-            className="absolute flex flex-col items-center justify-center rounded-full border border-primary-100 bg-white text-center shadow-sm"
+            className="absolute flex flex-col items-center justify-center rounded-full border border-primary-100 bg-light text-center shadow-sm"
             style={{
               left: pct(HUB.x - HUB.r, CANVAS_W),
               top: pct(HUB.y - HUB.r, CANVAS_H),
@@ -137,7 +137,7 @@ export default function NetworkSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="absolute flex items-start gap-3 rounded-2xl bg-white p-4 shadow-sm"
+                className="absolute flex items-start gap-3 rounded-2xl bg-light p-4 shadow-sm"
                 style={{
                   left: pct(card.left, CANVAS_W),
                   top: pct(card.top, CANVAS_H),
@@ -174,7 +174,7 @@ export default function NetworkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm"
+              className="flex items-center gap-4 rounded-2xl bg-light p-5 shadow-sm"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-100 text-sm font-semibold text-primary-700">
                 {getInitials(person.name)}
@@ -200,7 +200,7 @@ export default function NetworkSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mt-14 flex max-w-3xl flex-col items-center justify-center gap-6 rounded-2xl bg-white px-8 py-6 shadow-sm sm:flex-row sm:gap-0 sm:divide-x sm:divide-gray-100"
+          className="mx-auto mt-14 flex max-w-3xl flex-col items-center justify-center gap-6 rounded-2xl bg-light px-8 py-6 shadow-sm sm:flex-row sm:gap-0 sm:divide-x sm:divide-gray-100"
         >
           {stats.map((stat) => (
             <div
