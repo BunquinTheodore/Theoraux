@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface ButtonProps {
   href?: string;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "solid" | "outline";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
@@ -13,7 +13,7 @@ interface ButtonProps {
 
 export default function Button({
   href,
-  variant = "primary",
+  variant = "outline",
   size = "md",
   children,
   className = "",
@@ -22,38 +22,37 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200";
+    "inline-flex items-center justify-center gap-2 rounded font-medium transition-colors duration-200";
 
   const variants = {
-    primary: "bg-primary-600 text-white hover:bg-primary-700 hover:shadow-lg",
-    secondary: "bg-dark text-white hover:bg-dark-light",
+    solid: "bg-black text-white hover:bg-accent dark:bg-white dark:text-black dark:hover:bg-accent dark:hover:text-white",
     outline:
-      "border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white",
+      "border border-black/30 text-black hover:border-accent hover:bg-accent hover:text-white dark:border-white/35 dark:text-white dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white",
   };
 
   const sizes = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-sm",
-    lg: "px-8 py-4 text-base",
+    lg: "px-7 py-3.5 text-base",
   };
 
-  const disabledStyles = disabled ? "opacity-60 pointer-events-none" : "";
-  const styles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles} ${className}`;
+  const disabledStyles = disabled ? "opacity-50 pointer-events-none" : "";
+  const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles} ${className}`;
 
   if (href) {
     if (disabled) {
-      return <span className={styles}>{children}</span>;
+      return <span className={classes}>{children}</span>;
     }
 
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={classes}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={styles} disabled={disabled}>
+    <button type={type} onClick={onClick} className={classes} disabled={disabled}>
       {children}
     </button>
   );

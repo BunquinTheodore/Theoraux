@@ -2,56 +2,80 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import HeroBackground from "./HeroBackground";
+import FlowBackground from "@/components/sections/FlowBackground";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+};
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-white pt-20">
-      <HeroBackground />
+    <section className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-white px-4 pt-36 pb-16 text-black dark:bg-black dark:text-white sm:px-6 lg:px-8">
+      <FlowBackground />
 
-      <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl">
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.6 }}
+          className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500"
+        >
+          <p>Theoraux — Software Studio</p>
+          <p className="mt-1">Philippines / Available Worldwide</p>
+        </motion.div>
+
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-5xl font-extrabold leading-[1.05] tracking-tight text-dark sm:text-6xl lg:text-7xl"
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="font-display mt-8 max-w-6xl text-6xl font-semibold leading-[0.98] tracking-tight sm:text-7xl lg:text-8xl"
         >
           Software people
           <br />
-          <span className="text-primary-600">actually enjoy</span> using.
+          actually enjoy using.
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-dark/60"
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-10 max-w-lg text-base leading-relaxed text-neutral-400 sm:text-lg"
         >
-          Theoraux designs and builds web, mobile, and automation products
-          for growing businesses.
+          We design and build web, mobile, and automation products for
+          growing businesses.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-10 flex flex-wrap items-center gap-8"
         >
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-600 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-primary-700 hover:shadow-lg"
+            href="/portfolio"
+            className="group inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
           >
-            Book a Consultation <ArrowRight size={18} />
+            View our work
+            <span className="transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1">
+              ↘
+            </span>
           </Link>
           <Link
-            href="/portfolio"
-            className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary-600 px-8 py-4 text-base font-semibold text-primary-600 transition-all hover:bg-primary-600 hover:text-white"
+            href="/contact"
+            className="inline-flex items-center gap-2 border border-black/30 px-6 py-3 text-sm transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/30 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
           >
-            View Our Work
+            Start a project <span aria-hidden>→</span>
           </Link>
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="relative mx-auto w-full max-w-7xl"
+      >
+        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-600">
+          Scroll to explore ↓
+        </p>
+      </motion.div>
     </section>
   );
 }

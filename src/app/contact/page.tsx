@@ -2,17 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Clock,
-  CheckCircle2,
-  ShieldCheck,
-} from "lucide-react";
+import { Send } from "lucide-react";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Rule from "@/components/ui/Rule";
 
 const faqs = [
   {
@@ -36,6 +29,9 @@ const faqs = [
       "Yes. We're glad to sign an NDA before diving into specifics if your project involves sensitive or proprietary information.",
   },
 ];
+
+const inputClasses =
+  "w-full border-b border-black/20 bg-transparent px-0 py-3 text-sm text-black outline-none transition-colors focus:border-accent placeholder:text-neutral-400 dark:border-white/20 dark:text-white dark:focus:border-accent dark:placeholder:text-neutral-500";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -90,33 +86,31 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-light pt-32 pb-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-white px-4 pt-36 pb-20 text-black dark:bg-black dark:text-white sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-primary-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-600">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
               Book a Free Consultation
-            </span>
-            <h1 className="mt-4 text-4xl font-bold text-dark sm:text-5xl">
-              Let&apos;s Build Something{" "}
-              <span className="text-primary-600">Amazing</span>
+            </p>
+            <h1 className="font-display mt-6 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+              Let&apos;s build something amazing.
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-dark/60">
-              Tell us about your project and we&apos;ll get back to you within
-              24 hours with next steps — no sales pressure, just a clear plan
-              for how we&apos;d help.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-lg">
+              Tell us about your project and we&apos;ll get back to you
+              within 24 hours with next steps — no sales pressure, just a
+              clear plan for how we&apos;d help.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Form + Info */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-white px-4 py-24 text-black dark:bg-black dark:text-white sm:px-6 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-5">
             {/* Contact Info */}
             <motion.div
@@ -126,58 +120,50 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <h2 className="text-2xl font-bold text-dark">Get in Touch</h2>
-              <p className="mt-4 text-dark/60">
+              <h2 className="font-display text-3xl font-semibold tracking-tight">
+                Get in Touch
+              </h2>
+              <p className="mt-4 text-neutral-600 dark:text-neutral-400">
                 Have a project in mind? We&apos;d love to hear about it. Fill
-                out the form or reach out directly through any of the channels
-                below.
+                out the form or reach out directly through any of the
+                channels below.
               </p>
-              <div className="mt-8 space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-dark">Email</p>
-                    <a
-                      href="mailto:bunquintheodore@gmail.com"
-                      className="text-dark/60 transition-colors hover:text-primary-600"
-                    >
-                      bunquintheodore@gmail.com
-                    </a>
-                  </div>
+              <div className="mt-10 space-y-6 border-t border-black/10 pt-8 dark:border-white/10">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:bunquintheodore@gmail.com"
+                    className="mt-1 block transition-colors hover:text-neutral-500 dark:hover:text-neutral-400"
+                  >
+                    bunquintheodore@gmail.com
+                  </a>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-dark">Phone</p>
-                    <a
-                      href="tel:+639629935762"
-                      className="text-dark/60 transition-colors hover:text-primary-600"
-                    >
-                      (+63) 962 993 5762
-                    </a>
-                  </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+639629935762"
+                    className="mt-1 block transition-colors hover:text-neutral-500 dark:hover:text-neutral-400"
+                  >
+                    (+63) 962 993 5762
+                  </a>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-dark">Location</p>
-                    <p className="text-dark/60">Philippines · Remote-friendly worldwide</p>
-                  </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                    Location
+                  </p>
+                  <p className="mt-1">
+                    Philippines · Remote-friendly worldwide
+                  </p>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                    <Clock size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-dark">Response Time</p>
-                    <p className="text-dark/60">Within 24 hours, guaranteed</p>
-                  </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                    Response Time
+                  </p>
+                  <p className="mt-1">Within 24 hours, guaranteed</p>
                 </div>
               </div>
             </motion.div>
@@ -191,30 +177,24 @@ export default function ContactPage() {
               className="lg:col-span-3"
             >
               {submitted ? (
-                <div className="flex h-full items-center justify-center rounded-3xl bg-light p-12 text-center">
+                <div className="flex h-full min-h-[400px] items-center justify-center border border-black/10 p-12 text-center dark:border-white/10">
                   <div>
-                    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                      <Send size={28} className="text-green-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-dark">
-                      Message Sent!
+                    <h3 className="font-display text-3xl font-semibold tracking-tight">
+                      Message Sent
                     </h3>
-                    <p className="mt-3 text-dark/60">
-                      Thank you for reaching out. We&apos;ll review your message
-                      and get back to you within 24 hours.
+                    <p className="mt-3 text-neutral-600 dark:text-neutral-400">
+                      Thank you for reaching out. We&apos;ll review your
+                      message and get back to you within 24 hours.
                     </p>
                   </div>
                 </div>
               ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="rounded-3xl bg-light p-8 sm:p-10"
-                >
+                <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
                       <label
                         htmlFor="name"
-                        className="mb-2 block text-sm font-medium text-dark"
+                        className="mb-2 block text-xs uppercase tracking-[0.1em] text-neutral-500 dark:text-neutral-400"
                       >
                         Full Name
                       </label>
@@ -226,14 +206,14 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-dark outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                        className={inputClasses}
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="email"
-                        className="mb-2 block text-sm font-medium text-dark"
+                        className="mb-2 block text-xs uppercase tracking-[0.1em] text-neutral-500 dark:text-neutral-400"
                       >
                         Email Address
                       </label>
@@ -245,14 +225,14 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-dark outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                        className={inputClasses}
                         placeholder="john@example.com"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="service"
-                        className="mb-2 block text-sm font-medium text-dark"
+                        className="mb-2 block text-xs uppercase tracking-[0.1em] text-neutral-500 dark:text-neutral-400"
                       >
                         Service Interested In
                       </label>
@@ -262,7 +242,7 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, service: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-dark outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                        className={inputClasses}
                       >
                         <option value="">Select a service</option>
                         <option value="web">Web Development</option>
@@ -279,7 +259,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="budget"
-                        className="mb-2 block text-sm font-medium text-dark"
+                        className="mb-2 block text-xs uppercase tracking-[0.1em] text-neutral-500 dark:text-neutral-400"
                       >
                         Budget Range
                       </label>
@@ -289,7 +269,7 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, budget: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-dark outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                        className={inputClasses}
                       >
                         <option value="">Select budget range</option>
                         <option value="500-1500">$500 - $1,500</option>
@@ -303,7 +283,7 @@ export default function ContactPage() {
                   <div className="mt-6">
                     <label
                       htmlFor="message"
-                      className="mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-xs uppercase tracking-[0.1em] text-neutral-500 dark:text-neutral-400"
                     >
                       Project Details
                     </label>
@@ -315,33 +295,28 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      className="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-dark outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                      className={`${inputClasses} resize-none`}
                       placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                     />
                   </div>
-                  <div className="mt-8">
+                  <div className="mt-10">
                     <Button
                       type="submit"
+                      variant="solid"
                       size="lg"
                       className="w-full sm:w-auto"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
-                      {!isSubmitting && <Send className="ml-2" size={16} />}
+                      {!isSubmitting && <Send size={16} />}
                     </Button>
                     {submitError && (
                       <p className="mt-3 text-sm text-red-600">{submitError}</p>
                     )}
-                    <div className="mt-4 flex items-start gap-2 text-xs text-dark/50">
-                      <ShieldCheck
-                        size={16}
-                        className="mt-0.5 shrink-0 text-primary-500"
-                      />
-                      <p>
-                        Your details are kept confidential and are only used to
-                        respond to your inquiry. No spam, ever.
-                      </p>
-                    </div>
+                    <p className="mt-4 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                      Your details are kept confidential and are only used to
+                      respond to your inquiry. No spam, ever.
+                    </p>
                   </div>
                 </form>
               )}
@@ -351,35 +326,30 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-light py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-white px-4 py-24 text-black dark:bg-black dark:text-white sm:px-6 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-4xl">
           <SectionHeader
             label="Common Questions"
             title="Before You Reach Out"
             description="A few things prospective clients usually want to know."
           />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Rule />
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 pt-12 sm:grid-cols-2">
             {faqs.map((faq, index) => (
               <motion.div
                 key={faq.question}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="rounded-3xl bg-white p-6 shadow-sm"
               >
-                <div className="flex items-start gap-3">
-                  <CheckCircle2
-                    size={20}
-                    className="mt-0.5 shrink-0 text-primary-600"
-                  />
-                  <div>
-                    <p className="font-semibold text-dark">{faq.question}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-dark/60">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
+                <span className="font-mono text-sm text-neutral-500 dark:text-neutral-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-3 font-medium">{faq.question}</p>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  {faq.answer}
+                </p>
               </motion.div>
             ))}
           </div>

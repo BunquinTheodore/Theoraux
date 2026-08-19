@@ -1,68 +1,70 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import SectionHeader from "@/components/ui/SectionHeader";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Rule from "@/components/ui/Rule";
 import { testimonials } from "@/lib/data";
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2);
-}
-
 export default function TestimonialsSection() {
+  const [index, setIndex] = useState(0);
+  const active = testimonials[index];
+
+  const go = (dir: 1 | -1) => {
+    setIndex((prev) => (prev + dir + testimonials.length) % testimonials.length);
+  };
+
+  if (!active) return null;
+
   return (
-    <section className="bg-light py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader label="Testimonials" title="What Our Clients Say" />
-        <div className="flex flex-wrap justify-center gap-6">
-          {testimonials.map((testimonial, index) => {
-            return (
-              <motion.div
-                key={testimonial.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
-              >
-                <Link
-                  href={
-                    testimonial.projectId
-                      ? `/portfolio/${testimonial.projectId}`
-                      : "/portfolio"
-                  }
-                  className="group flex h-full flex-col rounded-2xl bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <p className="flex flex-1 items-center text-sm leading-relaxed text-dark/70">
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-sm font-semibold text-primary-700">
-                      {getInitials(testimonial.name)}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-dark">
-                        {testimonial.name}
-                      </p>
-                      <p className="truncate text-xs text-dark/50">
-                        {testimonial.role}, {testimonial.company}
-                      </p>
-                    </div>
-                    <ArrowUpRight
-                      size={16}
-                      className="ml-auto shrink-0 text-dark/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary-600"
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
+    <section className="bg-white px-4 py-24 text-black dark:bg-black dark:text-white sm:px-6 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-4xl">
+        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
+          What Clients Say
+        </p>
+
+        <AnimatePresence mode="wait">
+          <motion.blockquote
+            key={active.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.4 }}
+            className="mt-8"
+          >
+            <p className="font-display max-w-3xl text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
+              &ldquo;{active.quote}&rdquo;
+            </p>
+            <footer className="mt-8 text-sm text-neutral-600 dark:text-neutral-400">
+              {active.name} — {active.role}, {active.company}
+            </footer>
+          </motion.blockquote>
+        </AnimatePresence>
+
+        {testimonials.length > 1 && (
+          <>
+          <Rule className="mt-12" />
+          <div className="flex items-center gap-6 pt-8">
+            <button
+              onClick={() => go(-1)}
+              aria-label="Previous testimonial"
+              className="text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+            >
+              ← Prev
+            </button>
+            <span className="font-mono text-[10px] text-neutral-500 dark:text-neutral-600">
+              {String(index + 1).padStart(2, "0")} /{" "}
+              {String(testimonials.length).padStart(2, "0")}
+            </span>
+            <button
+              onClick={() => go(1)}
+              aria-label="Next testimonial"
+              className="text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+            >
+              Next →
+            </button>
+          </div>
+          </>
+        )}
       </div>
     </section>
   );

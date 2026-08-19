@@ -1,100 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { portfolioProjects } from "@/lib/data";
-import Button from "@/components/ui/Button";
-import { ArrowRight } from "lucide-react";
+import Rule from "@/components/ui/Rule";
 
-const showcase = portfolioProjects.slice(3, 6);
+const pillars = ["Strategy", "Design", "Engineering", "Launch"];
 
 export default function AboutSection() {
   return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-          {/* Left - Visual: real project wall */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid h-[400px] grid-cols-2 gap-4"
-          >
-            <Link
-              href={`/portfolio/${showcase[0].id}`}
-              className="group relative row-span-2 overflow-hidden rounded-3xl"
-            >
-              <Image
-                src={showcase[0].image}
-                alt={showcase[0].title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/0 to-transparent" />
-              <p className="absolute bottom-4 left-4 right-4 text-sm font-semibold text-white">
-                {showcase[0].title}
-              </p>
-            </Link>
-            <Link
-              href={`/portfolio/${showcase[1].id}`}
-              className="group relative overflow-hidden rounded-3xl"
-            >
-              <Image
-                src={showcase[1].image}
-                alt={showcase[1].title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/0 to-transparent" />
-              <p className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white">
-                {showcase[1].title}
-              </p>
-            </Link>
-            <Link
-              href={`/portfolio/${showcase[2].id}`}
-              className="group relative overflow-hidden rounded-3xl"
-            >
-              <Image
-                src={showcase[2].image}
-                alt={showcase[2].title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/0 to-transparent" />
-              <p className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white">
-                {showcase[2].title}
-              </p>
-            </Link>
-          </motion.div>
+    <section className="bg-white px-4 py-24 text-black dark:bg-black dark:text-white sm:px-6 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
+            About Theoraux
+          </p>
+          <h2 className="font-display mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            We don&apos;t believe in one-size-fits-all software.
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-lg">
+            Every product we build is shaped around how the business actually
+            works — from the interface people interact with to the systems
+            running behind it.
+          </p>
 
-          {/* Right - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <Rule className="mt-12" />
+          <div className="flex flex-wrap gap-x-10 gap-y-4 pt-8">
+            {pillars.map((pillar) => (
+              <span
+                key={pillar}
+                className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400"
+              >
+                {pillar}
+              </span>
+            ))}
+          </div>
+
+          <Link
+            href="/about"
+            className="group mt-10 inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
           >
-            <span className="mb-3 inline-block rounded-full bg-primary-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-600">
-              About Theoraux
+            Learn more about us
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              →
             </span>
-            <h2 className="mt-2 text-3xl font-bold text-dark sm:text-4xl">
-              We Build Software That{" "}
-              <span className="text-primary-600">Works for You</span>
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-dark/60">
-              We don&apos;t do one-size-fits-all. Every web app, mobile app, and
-              automation system we ship is custom-built around how your
-              business actually works.
-            </p>
-            <div className="mt-8">
-              <Button href="/about" variant="outline">
-                Learn More About Us <ArrowRight className="ml-2" size={16} />
-              </Button>
-            </div>
-          </motion.div>
-        </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

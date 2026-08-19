@@ -2,29 +2,23 @@
 
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import { ArrowRight } from "lucide-react";
 
 export default function CTABanner() {
   return (
-    <section className="bg-gradient-to-r from-primary-600 to-primary-700 py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-28 text-black dark:bg-black dark:text-white sm:px-6 sm:py-40 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
         >
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            Ready to Build Something Amazing?
+          <h2 className="font-display max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+            Let&apos;s build something people actually use.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
-            Let&apos;s discuss your project and find the perfect solution for
-            your business. Book a free consultation with our team today.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" variant="secondary" size="lg">
-              Book a Consultation <ArrowRight className="ml-2" size={18} />
+          <div className="mt-10">
+            <Button href="/contact" variant="solid" size="lg">
+              Start a project <span aria-hidden>→</span>
             </Button>
           </div>
         </motion.div>

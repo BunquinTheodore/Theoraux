@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { portfolioProjects } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import CTABanner from "@/components/sections/CTABanner";
+import Rule from "@/components/ui/Rule";
 import type { Metadata } from "next";
 
 interface Props {
@@ -44,45 +45,50 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
     portfolioProjects[(currentIndex + 1) % portfolioProjects.length];
 
   return (
-    <article className="pt-32 pb-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/portfolio"
-          className="mb-8 inline-flex items-center text-sm text-dark/50 transition-colors hover:text-primary-600"
-        >
-          <ArrowLeft size={14} className="mr-1" />
-          Back to Portfolio
-        </Link>
-
-        <span className="inline-block rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-600">
-          {project.category}
-        </span>
-        <h1 className="mt-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">
-          {project.title}
-        </h1>
-        <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-dark/50">
-          {project.clientLabel === "Credits" && (
-            <>
-              <span>{project.clientLabel}: {project.client}</span>
-              <span>&middot;</span>
-            </>
-          )}
-          <span>Timeline: {project.timeline}</span>
-        </div>
-
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-primary-600 px-6 py-2.5 text-sm font-semibold text-primary-600 transition-all hover:bg-primary-600 hover:text-white"
+    <article>
+      {/* Header */}
+      <section className="bg-white px-4 pt-36 pb-16 text-black dark:bg-black dark:text-white sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <Link
+            href="/portfolio"
+            className="mb-10 inline-flex items-center text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
           >
-            {project.liveLabel ?? "Visit Live Site"}
-            <ExternalLink size={15} />
-          </a>
-        )}
+            <ArrowLeft size={14} className="mr-2" />
+            Back to Portfolio
+          </Link>
 
-        <div className="relative mt-10 h-[300px] overflow-hidden rounded-2xl sm:h-[420px]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
+            {project.category}
+          </p>
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+            {project.title}
+          </h1>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">
+            {project.clientLabel === "Credits" && (
+              <span>
+                {project.clientLabel}: {project.client}
+              </span>
+            )}
+            <span>Timeline: {project.timeline}</span>
+          </div>
+
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 border border-black/30 px-6 py-3 text-sm transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/30 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
+            >
+              {project.liveLabel ?? "Visit Live Site"}
+              <ExternalLink size={15} />
+            </a>
+          )}
+        </div>
+      </section>
+
+      {/* Image */}
+      <section className="bg-white px-4 pb-20 dark:bg-black sm:px-6 lg:px-8">
+        <div className="relative mx-auto aspect-[16/10] w-full max-w-6xl overflow-hidden rounded border border-black/10 dark:border-white/10 sm:aspect-[16/9]">
           <Image
             src={project.image}
             alt={project.title}
@@ -91,45 +97,72 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
             priority
           />
         </div>
+      </section>
 
-        {/* Challenge & Approach */}
-        <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2">
+      {/* Challenge & Approach */}
+      <section className="bg-white px-4 py-24 text-black dark:bg-black dark:text-white sm:px-6 sm:py-32 lg:px-8">
+        <Rule />
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 pt-12 sm:grid-cols-2">
           <div>
-            <h2 className="text-xl font-bold text-dark">The Challenge</h2>
-            <p className="mt-4 leading-relaxed text-dark/70">
+            <span className="font-mono text-sm text-neutral-500 dark:text-neutral-400">01</span>
+            <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight">
+              The Challenge
+            </h2>
+            <p className="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">
               {project.challenge}
             </p>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-dark">Our Approach</h2>
-            <p className="mt-4 leading-relaxed text-dark/70">
+            <span className="font-mono text-sm text-neutral-500 dark:text-neutral-400">02</span>
+            <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight">
+              Our Approach
+            </h2>
+            <p className="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">
               {project.approach}
             </p>
           </div>
         </div>
+      </section>
 
-        {/* Tech stack */}
-        <div className="mt-16">
-          <h2 className="text-xl font-bold text-dark">Tech Stack</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
+      {/* Results */}
+      <section className="bg-white px-4 py-24 text-black dark:bg-black dark:text-white sm:px-6 sm:py-32 lg:px-8">
+        <Rule />
+        <div className="mx-auto max-w-5xl pt-12">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+            {project.results.map((result) => (
+              <div key={result.label}>
+                <p className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+                  {result.metric}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  {result.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 flex flex-wrap gap-3 border-t border-black/10 pt-10 dark:border-white/10">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary-600"
+                className="border border-black/20 px-3 py-1.5 font-mono text-xs text-neutral-600 dark:border-white/20 dark:text-neutral-300"
               >
                 {tech}
               </span>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Next project */}
-        <div className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-gray-100 pt-10 sm:flex-row sm:items-center">
+      {/* Next project */}
+      <section className="bg-white px-4 py-16 text-black dark:bg-black dark:text-white sm:px-6 lg:px-8">
+        <Rule />
+        <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 pt-12 sm:flex-row sm:items-center">
           <Link
             href={`/portfolio/${nextProject.id}`}
             className="group flex items-center gap-4"
           >
-            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
+            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded border border-black/10 dark:border-white/10">
               <Image
                 src={nextProject.image}
                 alt={nextProject.title}
@@ -138,8 +171,10 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               />
             </div>
             <div>
-              <p className="text-xs text-dark/50">Next Project</p>
-              <p className="flex items-center gap-1 font-semibold text-dark transition-colors group-hover:text-primary-600">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                Next Project
+              </p>
+              <p className="mt-1 flex items-center gap-1 font-medium transition-colors group-hover:text-accent">
                 {nextProject.title}
                 <ArrowRight
                   size={14}
@@ -148,13 +183,13 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               </p>
             </div>
           </Link>
-          <Button href="/contact">Start Your Project</Button>
+          <Button href="/contact" variant="outline">
+            Start Your Project
+          </Button>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-24">
-        <CTABanner />
-      </div>
+      <CTABanner />
     </article>
   );
 }

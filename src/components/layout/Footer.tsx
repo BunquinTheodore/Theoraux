@@ -1,146 +1,106 @@
 import Link from "next/link";
-import Image from "next/image";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Facebook,
-} from "lucide-react";
-import logo from "../../../assests/logo.png";
+import { Linkedin, Facebook } from "lucide-react";
+import Rule from "@/components/ui/Rule";
+import Logo from "@/components/ui/Logo";
+
+const primaryLinks = [
+  { href: "/portfolio", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/team", label: "Team" },
+  { href: "/blog", label: "Blog" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Company Info */}
-          <div>
-            <Image
-              src={logo}
-              alt="Theoraux"
-              className="h-10 w-auto brightness-125"
-            />
-            <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              Intelligent Automation. Streamline operation &amp; cut task to
-              unlock efficiency and drive growth.
+    <footer className="border-t border-black/10 bg-white text-black dark:border-white/10 dark:bg-black dark:text-white">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Link href="/" className="flex items-center gap-2.5">
+              <Logo className="h-7 w-7" />
+              <span className="font-mono text-sm font-medium tracking-[0.15em]">
+                THEORAUX
+              </span>
+            </Link>
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Software products for ambitious businesses.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-8 flex gap-5">
               <a
                 href="https://www.linkedin.com/company/112286976"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors hover:text-primary-400"
+                className="text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61582763437544"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors hover:text-primary-400"
+                className="text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
                 aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <Facebook size={18} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
-              Quick Links
+          <div className="md:col-span-3">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
+              Navigation
             </h4>
-            <ul className="mt-4 space-y-3">
-              {["About", "Services", "Portfolio", "Blog", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <Link
-                      href={`/${link.toLowerCase()}`}
-                      className="text-sm text-gray-400 transition-colors hover:text-primary-400"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
-              Services
-            </h4>
-            <ul className="mt-4 space-y-3">
-              {[
-                "Web Development",
-                "Mobile Apps",
-                "Custom Software",
-                "UI/UX Design",
-                "Automation",
-                "E-Commerce",
-              ].map((service) => (
-                <li key={service}>
+            <ul className="mt-5 space-y-3">
+              {primaryLinks.map((link) => (
+                <li key={link.href}>
                   <Link
-                    href="/services"
-                    className="text-sm text-gray-400 transition-colors hover:text-primary-400"
+                    href={link.href}
+                    className="text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
                   >
-                    {service}
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
-              Contact Us
+          <div className="md:col-span-4">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
+              Contact
             </h4>
-            <ul className="mt-4 space-y-3">
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-primary-400" />
-                <span className="text-sm text-gray-400">
+            <ul className="mt-5 space-y-3 text-sm text-neutral-500 dark:text-neutral-400">
+              <li>
+                <a
+                  href="mailto:bunquintheodore@gmail.com"
+                  className="transition-colors hover:text-accent dark:hover:text-accent"
+                >
                   bunquintheodore@gmail.com
-                </span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-primary-400" />
-                <span className="text-sm text-gray-400">
+              <li>
+                <a
+                  href="tel:+639629935762"
+                  className="transition-colors hover:text-accent dark:hover:text-accent"
+                >
                   (+63) 962 993 5762
-                </span>
+                </a>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="mt-0.5 text-primary-400" />
-                <span className="text-sm text-gray-400">Philippines</span>
-              </li>
+              <li>Philippines</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} Theoraux. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-sm text-gray-500 hover:text-gray-400"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-sm text-gray-500 hover:text-gray-400"
-              >
-                Terms of Service
-              </a>
-            </div>
-          </div>
+        <Rule className="mt-16" />
+        <div className="flex flex-col items-start justify-between gap-4 pt-8 sm:flex-row sm:items-center">
+          <p className="text-xs text-neutral-500">
+            &copy; {new Date().getFullYear()} THEORAUX
+          </p>
+          <p className="text-xs text-neutral-500">
+            Built with care in the Philippines.
+          </p>
         </div>
       </div>
     </footer>

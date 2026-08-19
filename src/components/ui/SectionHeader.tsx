@@ -9,20 +9,20 @@ export default function SectionHeader({
   label,
   title,
   description,
-  centered = true,
+  centered = false,
 }: SectionHeaderProps) {
   return (
-    <div className={`mb-16 ${centered ? "text-center" : ""}`}>
+    <div className={`mb-14 sm:mb-20 ${centered ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}`}>
       {label && (
-        <span className="mb-3 inline-block rounded-full bg-primary-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-600">
+        <span className="mb-5 block font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
           {label}
         </span>
       )}
-      <h2 className="text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
         {title}
       </h2>
       {description && (
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-dark/60">
+        <p className="mt-5 text-base leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-lg">
           {description}
         </p>
       )}

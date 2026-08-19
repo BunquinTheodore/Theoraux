@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, User } from "lucide-react";
 import { blogPosts } from "@/lib/data";
+import Rule from "@/components/ui/Rule";
 import type { Metadata } from "next";
 
 interface Props {
@@ -38,30 +39,28 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <article className="pt-32 pb-24">
+    <article className="bg-white pt-36 pb-24 text-black dark:bg-black dark:text-white">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        {/* Back link */}
         <Link
           href="/blog"
-          className="mb-8 inline-flex items-center text-sm text-dark/50 transition-colors hover:text-primary-600"
+          className="mb-8 inline-flex items-center text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
         >
-          <ArrowLeft size={14} className="mr-1" />
+          <ArrowLeft size={14} className="mr-2" />
           Back to Blog
         </Link>
 
-        {/* Header */}
-        <span className="inline-block rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-600">
+        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
           {post.category}
-        </span>
-        <h1 className="mt-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">
+        </p>
+        <h1 className="font-display mt-4 text-4xl font-semibold leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
           {post.title}
         </h1>
-        <div className="mt-6 flex items-center gap-4 text-sm text-dark/50">
+        <div className="mt-6 flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">
           <span className="flex items-center gap-1">
             <User size={14} />
             {post.author}
           </span>
-          <span>&middot;</span>
+          <span>·</span>
           <span>
             {new Date(post.date).toLocaleDateString("en-US", {
               month: "long",
@@ -69,15 +68,14 @@ export default async function BlogPostPage({ params }: Props) {
               year: "numeric",
             })}
           </span>
-          <span>&middot;</span>
+          <span>·</span>
           <span className="flex items-center gap-1">
             <Clock size={14} />
             {post.readTime}
           </span>
         </div>
 
-        {/* Featured Image */}
-        <div className="relative mt-10 h-[400px] overflow-hidden rounded-2xl">
+        <div className="relative mt-10 h-[400px] overflow-hidden border border-black/10 dark:border-white/10">
           <Image
             src={post.image}
             alt={post.title}
@@ -87,7 +85,6 @@ export default async function BlogPostPage({ params }: Props) {
           />
         </div>
 
-        {/* Content */}
         <div className="mt-12">
           {post.content.split("\n").map((paragraph, i) => {
             const trimmed = paragraph.trim();
@@ -96,27 +93,27 @@ export default async function BlogPostPage({ params }: Props) {
               return (
                 <h2
                   key={i}
-                  className="mt-10 mb-4 text-2xl font-bold text-dark"
+                  className="font-display mt-10 mb-4 text-3xl font-semibold tracking-tight"
                 >
                   {trimmed.replace("## ", "")}
                 </h2>
               );
             }
             return (
-              <p key={i} className="mb-4 leading-relaxed text-dark/70">
+              <p key={i} className="mb-4 leading-relaxed text-neutral-600 dark:text-neutral-400">
                 {trimmed}
               </p>
             );
           })}
         </div>
 
-        {/* Back to blog */}
-        <div className="mt-16 border-t border-gray-100 pt-8">
+        <Rule className="mt-16" />
+        <div className="pt-8">
           <Link
             href="/blog"
-            className="inline-flex items-center rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-700"
+            className="inline-flex items-center gap-2 border border-black/20 px-6 py-3 text-sm font-medium transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/20 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
           >
-            <ArrowLeft size={14} className="mr-2" />
+            <ArrowLeft size={14} />
             Back to Blog
           </Link>
         </div>
