@@ -42,7 +42,7 @@ export default function AboutSection() {
 
           <Link
             href="/about"
-            className="group mt-10 inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
+            className="group mt-10 inline-flex items-center gap-2 text-sm font-medium"
           >
             Learn more about us
             <span className="transition-transform duration-200 group-hover:translate-x-1">

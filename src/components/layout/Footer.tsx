@@ -32,7 +32,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/112286976"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                className="text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
@@ -41,7 +41,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=61582763437544"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                className="text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
@@ -58,7 +58,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                    className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:bunquintheodore@gmail.com"
-                  className="transition-colors hover:text-accent dark:hover:text-accent"
+                  className="transition-colors hover:text-black dark:hover:text-white"
                 >
                   bunquintheodore@gmail.com
                 </a>
@@ -83,7 +83,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+639629935762"
-                  className="transition-colors hover:text-accent dark:hover:text-accent"
+                  className="transition-colors hover:text-black dark:hover:text-white"
                 >
                   (+63) 962 993 5762
                 </a>

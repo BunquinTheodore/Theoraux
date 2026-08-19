@@ -25,9 +25,9 @@ export default function Button({
     "inline-flex items-center justify-center gap-2 rounded font-medium transition-colors duration-200";
 
   const variants = {
-    solid: "bg-black text-white hover:bg-accent dark:bg-white dark:text-black dark:hover:bg-accent dark:hover:text-white",
+    solid: "bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-300",
     outline:
-      "border border-black/30 text-black hover:border-accent hover:bg-accent hover:text-white dark:border-white/35 dark:text-white dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white",
+      "border border-black/30 text-black hover:border-black hover:bg-black hover:text-white dark:border-white/35 dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black",
   };
 
   const sizes = {

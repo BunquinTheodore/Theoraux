@@ -58,7 +58,7 @@ export default function ProjectRow({
         </p>
         <Link
           href={`/portfolio/${project.id}`}
-          className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-black transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
+          className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-black hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300"
         >
           View project
           <span className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">

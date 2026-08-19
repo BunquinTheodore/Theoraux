@@ -31,7 +31,7 @@ const faqs = [
 ];
 
 const inputClasses =
-  "w-full border-b border-black/20 bg-transparent px-0 py-3 text-sm text-black outline-none transition-colors focus:border-accent placeholder:text-neutral-400 dark:border-white/20 dark:text-white dark:focus:border-accent dark:placeholder:text-neutral-500";
+  "w-full border-b border-black/20 bg-transparent px-0 py-3 text-sm text-black outline-none transition-colors focus:border-black placeholder:text-neutral-400 dark:border-white/20 dark:text-white dark:focus:border-white dark:placeholder:text-neutral-500";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

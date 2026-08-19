@@ -30,7 +30,7 @@ export default function PortfolioSection() {
             <div className="pt-12">
               <Link
                 href="/portfolio"
-                className="group inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-2 text-sm font-medium"
               >
                 View all {portfolioProjects.length} projects
                 <span className="transition-transform duration-200 group-hover:translate-x-1">

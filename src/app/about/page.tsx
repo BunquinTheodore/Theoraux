@@ -243,14 +243,14 @@ export default function AboutPage() {
             >
               <Link
                 href={`/portfolio/${industry.projectId}`}
-                className="group relative block border-b border-black/10 transition-colors duration-300 hover:bg-accent/[0.06] dark:border-white/10 dark:hover:bg-accent/[0.1]"
+                className="group relative block border-b border-black/10 transition-colors duration-300 hover:bg-black/[0.02] dark:border-white/10 dark:hover:bg-white/[0.04]"
                 style={{
                   marginLeft: "calc(50% - 50vw)",
                   marginRight: "calc(50% - 50vw)",
                 }}
               >
                 <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 sm:flex-row sm:items-center sm:gap-8 sm:px-6 sm:py-8 lg:px-8">
-                  <span className="font-mono text-sm text-neutral-500 transition-colors duration-300 group-hover:text-accent dark:text-neutral-400 dark:group-hover:text-accent sm:w-10">
+                  <span className="font-mono text-sm text-neutral-500 transition-colors duration-300 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white sm:w-10">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-display text-xl font-semibold tracking-tight transition-transform duration-300 group-hover:translate-x-1.5 sm:w-72 sm:shrink-0">
@@ -261,7 +261,7 @@ export default function AboutPage() {
                   </p>
                   <ArrowUpRight
                     size={18}
-                    className="hidden shrink-0 text-neutral-500 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent dark:text-neutral-400 dark:group-hover:text-accent sm:block"
+                    className="hidden shrink-0 text-neutral-500 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white sm:block"
                   />
                 </div>
               </Link>

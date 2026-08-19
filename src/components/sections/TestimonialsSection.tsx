@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
             <button
               onClick={() => go(-1)}
               aria-label="Previous testimonial"
-              className="text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+              className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
             >
               ← Prev
             </button>
@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
             <button
               onClick={() => go(1)}
               aria-label="Next testimonial"
-              className="text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+              className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
             >
               Next →
             </button>

@@ -8,7 +8,6 @@
   --color-surface: #0a0a0a;
   --color-border-dark: #262626;
   --color-border-light: #e5e5e5;
-  --color-accent: #0ea5e9;
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-mono: var(--font-mono-plex), ui-monospace, monospace;
   --font-display: var(--font-bricolage), var(--font-inter), system-ui, sans-serif;
@@ -23,6 +22,50 @@ body {
   background: #ffffff;
   color: #000000;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Smoothly cross-fade colors sitewide when the dark/light theme is toggled.
+   Elements with their own transition-property (e.g. hover arrow translates)
+   keep that instead — this only fills in the default for everything else. */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, text-decoration-color;
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Circular reveal expanding from the theme toggle button, via the View
+   Transitions API. Falls back silently (instant swap) in browsers that
+   don't support it — see the feature check in ThemeToggle.tsx. */
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 0.6s ease-in-out both;
+  clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%));
+}
+
+@keyframes theme-reveal {
+  to {
+    clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 html.dark body {

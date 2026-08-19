@@ -25,14 +25,14 @@ export default function ServicesSection() {
           >
             <Link
               href={`/services#${service.id}`}
-              className="group relative block border-b border-black/10 transition-colors duration-300 hover:bg-accent/[0.06] dark:border-white/10 dark:hover:bg-accent/[0.1]"
+              className="group relative block border-b border-black/10 transition-colors duration-300 hover:bg-black/[0.02] dark:border-white/10 dark:hover:bg-white/[0.04]"
               style={{
                 marginLeft: "calc(50% - 50vw)",
                 marginRight: "calc(50% - 50vw)",
               }}
             >
               <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 sm:flex-row sm:items-center sm:gap-8 sm:px-6 sm:py-8 lg:px-8">
-                <span className="font-mono text-sm text-neutral-500 transition-colors duration-300 group-hover:text-accent dark:text-neutral-400 dark:group-hover:text-accent sm:w-10">
+                <span className="font-mono text-sm text-neutral-500 transition-colors duration-300 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white sm:w-10">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-2xl font-semibold tracking-tight transition-transform duration-300 group-hover:translate-x-1.5 sm:w-64 sm:shrink-0 sm:text-3xl">
@@ -41,7 +41,7 @@ export default function ServicesSection() {
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 sm:flex-1">
                   {service.shortDescription}
                 </p>
-                <span className="hidden font-mono text-sm text-neutral-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent dark:text-neutral-400 dark:group-hover:text-accent sm:block">
+                <span className="hidden font-mono text-sm text-neutral-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white sm:block">
                   →
                 </span>
               </div>

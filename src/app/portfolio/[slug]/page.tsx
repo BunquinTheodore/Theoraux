@@ -51,7 +51,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
         <div className="mx-auto max-w-5xl">
           <Link
             href="/portfolio"
-            className="mb-10 inline-flex items-center text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+            className="mb-10 inline-flex items-center text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
           >
             <ArrowLeft size={14} className="mr-2" />
             Back to Portfolio
@@ -77,7 +77,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 border border-black/30 px-6 py-3 text-sm transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/30 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
+              className="mt-8 inline-flex items-center gap-2 border border-black/30 px-6 py-3 text-sm transition-colors hover:border-black hover:bg-black hover:text-white dark:border-white/30 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
             >
               {project.liveLabel ?? "Visit Live Site"}
               <ExternalLink size={15} />
@@ -174,7 +174,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
                 Next Project
               </p>
-              <p className="mt-1 flex items-center gap-1 font-medium transition-colors group-hover:text-accent">
+              <p className="mt-1 flex items-center gap-1 font-medium transition-colors">
                 {nextProject.title}
                 <ArrowRight
                   size={14}

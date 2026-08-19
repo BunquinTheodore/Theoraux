@@ -51,7 +51,7 @@ export default function PortfolioPage() {
                 className={`text-sm font-medium transition-colors ${
                   activeCategory === category
                     ? "text-black underline underline-offset-8 dark:text-white"
-                    : "text-neutral-500 hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                    : "text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-white"
                 }`}
               >
                 {category}

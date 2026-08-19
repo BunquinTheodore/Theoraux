@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/blog"
-          className="mb-8 inline-flex items-center text-sm text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+          className="mb-8 inline-flex items-center text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
         >
           <ArrowLeft size={14} className="mr-2" />
           Back to Blog
@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="pt-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 border border-black/20 px-6 py-3 text-sm font-medium transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/20 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
+            className="inline-flex items-center gap-2 border border-black/20 px-6 py-3 text-sm font-medium transition-colors hover:border-black hover:bg-black hover:text-white dark:border-white/20 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
           >
             <ArrowLeft size={14} />
             Back to Blog

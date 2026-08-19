@@ -86,7 +86,7 @@ export default function BlogPage() {
                       <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                         {post.excerpt}
                       </p>
-                      <div className="mt-4 flex items-center gap-2 text-sm font-medium transition-colors group-hover:text-accent">
+                      <div className="mt-4 flex items-center gap-2 text-sm font-medium">
                         Read More <ArrowRight size={14} />
                       </div>
                     </div>

@@ -69,7 +69,7 @@ export default function TeamPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${member.name} on LinkedIn`}
-                      className="text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                      className="text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                     >
                       <Linkedin size={16} />
                     </a>
@@ -78,7 +78,7 @@ export default function TeamPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${member.name} on Facebook`}
-                      className="text-neutral-500 transition-colors hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                      className="text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                     >
                       <Facebook size={16} />
                     </a>

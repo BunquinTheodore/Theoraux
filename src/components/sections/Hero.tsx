@@ -50,7 +50,7 @@ export default function Hero() {
         >
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
+            className="group inline-flex items-center gap-2 text-sm font-medium"
           >
             View our work
             <span className="transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -59,7 +59,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 border border-black/30 px-6 py-3 text-sm transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/30 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
+            className="inline-flex items-center gap-2 border border-black/30 px-6 py-3 text-sm transition-colors hover:border-black hover:bg-black hover:text-white dark:border-white/30 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
           >
             Start a project <span aria-hidden>→</span>
           </Link>

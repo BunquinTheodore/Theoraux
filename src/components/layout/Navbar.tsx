@@ -51,7 +51,7 @@ export default function Navbar() {
                 className={`text-sm transition-colors ${
                   pathname === link.href
                     ? "text-black dark:text-white"
-                    : "text-neutral-500 hover:text-accent dark:text-neutral-400 dark:hover:text-accent"
+                    : "text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-white"
                 }`}
               >
                 {link.label}
@@ -63,7 +63,7 @@ export default function Navbar() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border border-black/30 px-5 py-2 text-sm transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/30 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
+              className="inline-flex items-center gap-2 border border-black/30 px-5 py-2 text-sm transition-colors hover:border-black hover:bg-black hover:text-white dark:border-white/30 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
             >
               Let&apos;s Talk <span aria-hidden>→</span>
             </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="inline-flex items-center justify-center gap-2 border border-black/30 px-6 py-4 text-sm transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-white/30 dark:hover:border-accent dark:hover:bg-accent dark:hover:text-white"
+            className="inline-flex items-center justify-center gap-2 border border-black/30 px-6 py-4 text-sm transition-colors hover:border-black hover:bg-black hover:text-white dark:border-white/30 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
           >
             Let&apos;s Talk <span aria-hidden>→</span>
           </Link>
