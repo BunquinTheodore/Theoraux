@@ -695,7 +695,7 @@ export const testimonials = [
 ];
 
 import theodoreImage from "../../assests/17.png";
-import danielImage from "../../assests/daniel-villanueva.png";
+import danielImage from "../../assests/daniel-villanueva-white.png";
 import christianImage from "../../assests/christian.png";
 import johnImage from "../../assests/19.png";
 import paulImage from "../../assests/20.png";
