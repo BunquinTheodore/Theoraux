@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#000000"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+
+  <text x="72" y="74" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="15" letter-spacing="3" fill="#8a8a8a">SYSTEM &#183; THREE STANDALONE WORKFLOWS</text>
+  <text x="72" y="128" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="38" font-weight="700" fill="#ffffff">Everyday Business Automations</text>
+
+  <!-- Three columns, one per workflow -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="15">
+
+    <!-- Column 1: Contact Form -->
+    <text x="72" y="250" fill="#8a8a8a" letter-spacing="2">01 &#183; CONTACT FORM</text>
+    <rect x="72" y="272" width="420" height="54" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="94" y="305" fill="#ffffff">Form submitted</text>
+    <text x="282" y="308" fill="#ffffff" fill-opacity="0.3" font-size="18">&#8594;</text>
+    <rect x="316" y="272" width="176" height="54" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="336" y="305" fill="#c8c8c8">Log row</text>
+    <rect x="72" y="350" width="420" height="54" rx="4" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="94" y="383" fill="#ffffff">&#10003; Owner notified + auto-reply sent</text>
+
+    <!-- Column 2: Invoice Reminders -->
+    <text x="72" y="470" fill="#8a8a8a" letter-spacing="2">02 &#183; INVOICE PAYMENT REMINDERS</text>
+    <rect x="72" y="492" width="420" height="54" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="94" y="525" fill="#ffffff">Daily 9am sweep</text>
+    <text x="282" y="528" fill="#ffffff" fill-opacity="0.3" font-size="18">&#8594;</text>
+    <rect x="316" y="492" width="176" height="54" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="336" y="525" fill="#c8c8c8">Due in 3d?</text>
+    <rect x="72" y="570" width="230" height="54" rx="4" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="94" y="603" fill="#ffffff">Upcoming sent</text>
+    <rect x="316" y="570" width="176" height="54" rx="4" fill="#dc2626" fill-opacity="0.08" stroke="#dc2626" stroke-opacity="0.55"/>
+    <text x="336" y="603" fill="#fca5a5">Overdue sent</text>
+
+    <!-- Column 3: Review Requests -->
+    <text x="72" y="690" fill="#8a8a8a" letter-spacing="2">03 &#183; REVIEW REQUEST AUTOMATION</text>
+    <rect x="72" y="712" width="420" height="54" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="94" y="745" fill="#ffffff">Daily 10am sweep</text>
+    <text x="282" y="748" fill="#ffffff" fill-opacity="0.3" font-size="18">&#8594;</text>
+    <rect x="316" y="712" width="176" height="54" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="336" y="745" fill="#c8c8c8">2d+ since job</text>
+    <rect x="72" y="790" width="420" height="54" rx="4" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="94" y="823" fill="#ffffff">&#10003; Review request sent, marked done</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="72" y1="900" x2="1528" y2="900" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="72" y="936" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="14" fill="#8a8a8a">n8n &#183; Google Sheets API &#183; Gmail API</text>
+  <text x="1528" y="936" text-anchor="end" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="14" fill="#d4d4d4">3 workflows &#183; 5&#8211;7 nodes each &#183; trigger &#8594; decide &#8594; act</text>
+</svg>

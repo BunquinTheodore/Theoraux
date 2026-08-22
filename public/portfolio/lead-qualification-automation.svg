@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#000000"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+
+  <text x="72" y="74" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="15" letter-spacing="3" fill="#8a8a8a">SYSTEM &#183; AI SCORING ENGINE</text>
+  <text x="72" y="128" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="42" font-weight="700" fill="#ffffff">AI Lead Qualification</text>
+
+  <!-- Row 1: intake -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="17">
+    <rect x="72" y="252" width="330" height="60" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="94" y="288" fill="#ffffff">Website Form / Webhook</text>
+
+    <text x="422" y="290" fill="#ffffff" fill-opacity="0.35" font-size="22">&#8594;</text>
+
+    <rect x="452" y="252" width="170" height="60" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="474" y="288" fill="#c8c8c8">Normalize</text>
+
+    <text x="638" y="290" fill="#ffffff" fill-opacity="0.35" font-size="22">&#8594;</text>
+
+    <rect x="668" y="252" width="330" height="60" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="690" y="288" fill="#c8c8c8">Gemini &#8212; score 0&#8211;100</text>
+  </g>
+
+  <!-- Row 2: classification tiers -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="17">
+    <rect x="72" y="390" width="330" height="66" rx="4" fill="#dc2626" fill-opacity="0.08" stroke="#dc2626" stroke-opacity="0.55"/>
+    <text x="96" y="430" fill="#fca5a5">&#128308; HOT &#8212; score &#8805; 75</text>
+
+    <rect x="436" y="390" width="330" height="66" rx="4" fill="#d97706" fill-opacity="0.08" stroke="#d97706" stroke-opacity="0.55"/>
+    <text x="460" y="430" fill="#fcd34d">&#128993; WARM &#8212; score 40&#8211;74</text>
+
+    <rect x="800" y="390" width="330" height="66" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="824" y="430" fill="#a3a3a3">&#128309; COLD &#8212; score &lt; 40</text>
+  </g>
+
+  <!-- Row 3: outcomes -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="17">
+    <rect x="72" y="560" width="500" height="70" rx="4" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="96" y="602" fill="#ffffff">&#10003; Saved to CRM automatically</text>
+
+    <rect x="606" y="560" width="620" height="70" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.3"/>
+    <text x="630" y="602" fill="#e5e5e5">&#9993; Sales notified, urgency-coded &#183; lead gets an instant reply</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="72" y1="900" x2="1528" y2="900" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="72" y="936" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="14" fill="#8a8a8a">n8n &#183; Google Gemini &#183; Google Sheets &#183; Gmail</text>
+  <text x="1528" y="936" text-anchor="end" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="14" fill="#d4d4d4">Scored, classified, routed &#8212; before a human ever opens the inbox</text>
+</svg>

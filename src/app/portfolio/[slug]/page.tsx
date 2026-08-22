@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { portfolioProjects } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import CTABanner from "@/components/sections/CTABanner";
+import AutomationCaseStudy from "@/components/sections/AutomationCaseStudy";
 import Rule from "@/components/ui/Rule";
 import type { Metadata } from "next";
 
@@ -44,6 +45,12 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
   const nextProject =
     portfolioProjects[(currentIndex + 1) % portfolioProjects.length];
 
+  if (project.automation) {
+    return (
+      <AutomationCaseStudy project={project} nextProject={nextProject} />
+    );
+  }
+
   return (
     <article>
       {/* Header */}
@@ -64,7 +71,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
             {project.title}
           </h1>
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">
-            {project.clientLabel === "Credits" && (
+            {(project.clientLabel === "Credits" || project.clientLabel === "Type") && (
               <span>
                 {project.clientLabel}: {project.client}
               </span>

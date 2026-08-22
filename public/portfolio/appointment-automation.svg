@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#000000"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+
+  <text x="72" y="74" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="15" letter-spacing="3" fill="#8a8a8a">SYSTEM &#183; SCHEDULING ENGINE</text>
+  <text x="72" y="128" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="38" font-weight="700" fill="#ffffff">Appointment Booking &amp; No-Show Recovery</text>
+
+  <!-- Row 1: intake -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="17">
+    <rect x="72" y="250" width="330" height="60" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="94" y="286" fill="#ffffff">Booking Form / Webhook</text>
+
+    <text x="422" y="288" fill="#ffffff" fill-opacity="0.35" font-size="22">&#8594;</text>
+
+    <rect x="452" y="250" width="260" height="60" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="474" y="286" fill="#c8c8c8">Conflict Check</text>
+
+    <text x="732" y="288" fill="#ffffff" fill-opacity="0.35" font-size="22">&#8594;</text>
+
+    <rect x="762" y="250" width="200" height="60" rx="4" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="784" y="286" fill="#ffffff">Confirmed</text>
+  </g>
+
+  <!-- Row 2: reminder timeline -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="16">
+    <text x="72" y="400" fill="#8a8a8a" letter-spacing="2">REMINDER TIMELINE &#8212; NEVER SENT TWICE</text>
+
+    <rect x="72" y="424" width="150" height="56" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="118" y="458" fill="#ffffff">48H</text>
+
+    <line x1="222" y1="452" x2="290" y2="452" stroke="#ffffff" stroke-opacity="0.3"/>
+
+    <rect x="290" y="424" width="150" height="56" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="336" y="458" fill="#ffffff">24H</text>
+
+    <line x1="440" y1="452" x2="508" y2="452" stroke="#ffffff" stroke-opacity="0.3"/>
+
+    <rect x="508" y="424" width="150" height="56" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="554" y="458" fill="#ffffff">2H</text>
+
+    <line x1="658" y1="452" x2="726" y2="452" stroke="#ffffff" stroke-opacity="0.3"/>
+
+    <rect x="726" y="424" width="300" height="56" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.22"/>
+    <text x="748" y="458" fill="#c8c8c8">Reply: CONFIRM / CANCEL</text>
+  </g>
+
+  <!-- Row 3: outcomes -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="16">
+    <rect x="72" y="560" width="440" height="66" rx="4" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="96" y="600" fill="#ffffff">&#10003; CONFIRMED &#8212; stays on schedule</text>
+
+    <rect x="536" y="560" width="480" height="66" rx="4" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.3"/>
+    <text x="560" y="600" fill="#e5e5e5">&#8635; WAITLIST OFFERED &#8212; first to reply keeps it</text>
+
+    <rect x="1040" y="560" width="410" height="66" rx="4" fill="#dc2626" fill-opacity="0.08" stroke="#dc2626" stroke-opacity="0.6"/>
+    <text x="1064" y="600" fill="#fca5a5">&#9679; NO-SHOW &#8212; revenue flagged</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="72" y1="900" x2="1528" y2="900" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="72" y="936" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="14" fill="#8a8a8a">n8n &#183; Google Sheets API &#183; Gmail API</text>
+  <text x="1528" y="936" text-anchor="end" font-family="ui-monospace, 'IBM Plex Mono', monospace" font-size="14" fill="#d4d4d4">5 automated sub-flows &#183; live-tested end-to-end &#183; zero errors</text>
+</svg>

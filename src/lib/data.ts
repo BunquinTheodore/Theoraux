@@ -324,6 +324,351 @@ export const portfolioProjects = [
       { metric: "7+", label: "Active giving campaigns" },
     ],
   },
+  {
+    id: "luna-support-automation",
+    title: "AI Customer Support & Escalation System",
+    category: "Automation",
+    tags: ["Workflow Automation", "AI Decision Engine", "Customer Support"],
+    description:
+      "A message-triage system for an e-commerce brand that answers only what it can prove from a live spreadsheet — everything else, and anything from a distressed customer, goes straight to a human with the order already looked up.",
+    image: "/portfolio/support-escalation-workflow.png",
+    clientLabel: "Type",
+    client: "Theoraux Lab · Production-tested prototype",
+    timeline: "Built and live-tested",
+    techStack: ["n8n", "Google Sheets API", "Gmail API", "Google Gemini"],
+    challenge:
+      "A growing online seller had one shared inbox for Messenger, Instagram, and web-form messages, and staff were answering the same routine questions dozens of times a day while urgent complaints sometimes waited behind them in the queue.",
+    approach:
+      "We built an n8n decision engine that checks six ordered gates — starting with whether the customer sounds distressed, before it even looks at what they're asking — and only lets the system answer when it can point to a specific row in a live spreadsheet. Anything it can't prove, or anything urgent, goes to a human inbox with the customer's order already pulled up.",
+    results: [
+      { metric: "3", label: "Channels unified into one pipeline" },
+      { metric: "34", label: "Scripted messages run against the real system, real Gemini, real spreadsheet — zero misfires" },
+      { metric: "0", label: "Tolerance for a wrong automated answer, by design" },
+    ],
+    automation: {
+      workflowImages: [
+        {
+          label: "Overview",
+          src: "/portfolio/support-escalation-workflow.png",
+          width: 1778,
+          height: 585,
+          alt: "n8n workflow for AI customer support, safety checks, and human escalation",
+        },
+        {
+          label: "Inputs & normalization",
+          src: "/portfolio/support-inputs-normalization.png",
+          width: 1112,
+          height: 560,
+          alt: "Close-up of the support workflow inputs, webhook verification, normalization, and reference data loading",
+        },
+        {
+          label: "Classification",
+          src: "/portfolio/support-classification.png",
+          width: 1009,
+          height: 699,
+          alt: "Close-up of the support workflow message loop, staff reply detection, AI classification, and decision engine",
+        },
+        {
+          label: "Response routing",
+          src: "/portfolio/support-response-routing.png",
+          width: 1537,
+          height: 601,
+          alt: "Close-up of the support workflow human escalation and multichannel response routing logic",
+        },
+        {
+          label: "Logging",
+          src: "/portfolio/support-logging.png",
+          width: 780,
+          height: 506,
+          alt: "Close-up of the support workflow conversation and decision logging steps",
+        },
+        {
+          label: "Daily digest",
+          src: "/portfolio/support-daily-digest.png",
+          width: 869,
+          height: 323,
+          alt: "Close-up of the support workflow daily log digest automation",
+        },
+      ],
+      scenarios: [
+        {
+          label: "Verified question",
+          trigger: "“Where is order #1048?”",
+          steps: ["Capture message", "Load order data", "Run safety gates", "Send verified reply"],
+          outcome: "The customer gets a fast answer backed by a live spreadsheet row.",
+          imageIndex: 3,
+        },
+        {
+          label: "Distressed customer",
+          trigger: "“I was charged twice and need help now.”",
+          steps: ["Capture message", "Detect distress", "Prepare order context", "Escalate to a human"],
+          outcome: "Automation stays silent and sends the case to a person with the order already loaded.",
+          imageIndex: 3,
+        },
+        {
+          label: "Unverified request",
+          trigger: "“Can you promise delivery tomorrow?”",
+          steps: ["Capture message", "Check available facts", "Reject unsupported answer", "Create handoff"],
+          outcome: "The system refuses to guess and routes the conversation safely.",
+          imageIndex: 2,
+        },
+      ],
+      comparison: [
+        { label: "Routine replies", before: "Repeated manually in a shared inbox", after: "Answered in seconds from verified data" },
+        { label: "Urgent messages", before: "Wait behind routine questions", after: "Escalated before intent handling" },
+        { label: "Agent context", before: "Order details searched by hand", after: "Customer and order context preloaded" },
+      ],
+      safeguards: [
+        "Distress and urgency are checked before automation answers.",
+        "Replies require a matching source-of-truth record.",
+        "Unsupported requests always fall back to a human.",
+      ],
+    },
+  },
+  {
+    id: "appointment-noshow-automation",
+    title: "Appointment Booking, Reminders & No-Show Recovery",
+    category: "Automation",
+    tags: ["Workflow Automation", "Scheduling System", "Revenue Recovery"],
+    description:
+      "A booking system for local service businesses that catches conflicts before they happen, chases confirmations on a 48h/24h/2h schedule, and offers a cancelled or no-show slot to a waitlisted customer within the same minute — turning a missed appointment from lost revenue into recovered revenue.",
+    image: "/portfolio/appointment-workflow.png",
+    clientLabel: "Type",
+    client: "Theoraux Lab · Production-tested prototype",
+    timeline: "Built and live-tested",
+    techStack: ["n8n", "Google Sheets API", "Gmail API"],
+    challenge:
+      "Service businesses that book by appointment lose revenue twice on a no-show — once when the slot goes unfilled, and again because nobody finds out in time to offer it to someone else on the waitlist.",
+    approach:
+      "We built a single n8n workflow with five coordinated triggers sharing one spreadsheet as the source of truth: booking intake with automatic conflict detection, a staged 48h/24h/2h reminder sequence that never repeats itself, reply parsing that acts on CONFIRM/CANCEL/RESCHEDULE, a nightly no-show sweep with estimated revenue lost, and an automatic waitlist offer the instant a slot frees up.",
+    results: [
+      { metric: "3-tier", label: "Reminder sequence (48h / 24h / 2h) with zero duplicate sends" },
+      { metric: "Auto", label: "Waitlist backfill the instant a slot cancels or no-shows" },
+      { metric: "0", label: "Errors across every node on the first live test booking" },
+    ],
+    automation: {
+      workflowImages: [
+        {
+          label: "Overview",
+          src: "/portfolio/appointment-workflow.png",
+          width: 1029,
+          height: 773,
+          alt: "n8n appointment booking, reminder, reply, no-show, and waitlist workflow",
+        },
+        {
+          label: "Booking & conflicts",
+          src: "/portfolio/appointment-booking-conflicts.png",
+          width: 1634,
+          height: 635,
+          alt: "Close-up of appointment intake, conflict detection, booking storage, and confirmation notifications",
+        },
+        {
+          label: "Reminder sequence",
+          src: "/portfolio/appointment-reminders.png",
+          width: 1562,
+          height: 258,
+          alt: "Close-up of the scheduled appointment reminder decision and update workflow",
+        },
+        {
+          label: "Reply processing",
+          src: "/portfolio/appointment-reply-processing.png",
+          width: 1160,
+          height: 338,
+          alt: "Close-up of appointment reply parsing, booking matching, and unmatched reply handling",
+        },
+        {
+          label: "Waitlist recovery",
+          src: "/portfolio/appointment-waitlist-recovery.png",
+          width: 857,
+          height: 566,
+          alt: "Close-up of appointment cancellation, reconfirmation, human review, and waitlist recovery logic",
+        },
+        {
+          label: "No-show & digest",
+          src: "/portfolio/appointment-noshow-digest.png",
+          width: 1036,
+          height: 279,
+          alt: "Close-up of appointment no-show detection, front desk notification, and daily digest workflows",
+        },
+      ],
+      scenarios: [
+        {
+          label: "New booking",
+          trigger: "A customer requests an available slot.",
+          steps: ["Normalize request", "Check schedule", "Save booking", "Send confirmation"],
+          outcome: "The slot is reserved and both the customer and front desk receive confirmation.",
+          imageIndex: 1,
+        },
+        {
+          label: "Cancellation",
+          trigger: "A confirmed customer replies CANCEL.",
+          steps: ["Parse reply", "Update booking", "Find waitlist match", "Offer freed slot"],
+          outcome: "A waitlisted customer receives the opening while it is still recoverable.",
+          imageIndex: 4,
+        },
+        {
+          label: "No-show",
+          trigger: "The daily sweep finds an unattended booking.",
+          steps: ["Detect no-show", "Record lost revenue", "Notify front desk", "Include in digest"],
+          outcome: "The missed appointment becomes visible, measurable, and actionable.",
+          imageIndex: 5,
+        },
+      ],
+      comparison: [
+        { label: "Reminders", before: "Sent when staff remember", after: "Scheduled at 48h, 24h, and 2h" },
+        { label: "Cancelled slots", before: "Often remain empty", after: "Offered to the waitlist immediately" },
+        { label: "No-show impact", before: "Revenue loss stays anecdotal", after: "Logged and summarized every day" },
+      ],
+      safeguards: [
+        "Conflict detection runs before a booking is saved.",
+        "Reminder state prevents duplicate messages.",
+        "Reply parsing separates confirm, cancel, and reschedule paths.",
+      ],
+    },
+  },
+  {
+    id: "lead-qualification-automation",
+    title: "AI Lead Qualification",
+    category: "Automation",
+    tags: ["Workflow Automation", "AI Lead Scoring", "Sales Ops"],
+    description:
+      "A lead-intake system that scores every inbound enquiry 0–100 on real buying intent, routes hot leads to the sales team with an urgency-coded email, saves everything to a CRM sheet automatically, and replies to the lead instantly so no one is left wondering if their message went through.",
+    image: "/portfolio/lead-qualification-workflow.png",
+    clientLabel: "Type",
+    client: "Theoraux Lab · Production-tested prototype",
+    timeline: "Built and tested",
+    techStack: ["n8n", "Google Gemini", "Google Sheets", "Gmail"],
+    challenge:
+      "Manually triaging inbound enquiries means hot, ready-to-buy leads sit in the same inbox as browsers and tire-kickers — and the first team member to check email decides who gets followed up on today versus next week.",
+    approach:
+      "We built an n8n workflow that captures a lead from a form or webhook, scores it with Google Gemini against real buying-intent criteria rather than just form completion, classifies it HOT/WARM/COLD, saves the full record to a CRM spreadsheet, sends the sales team a color-coded priority email, and auto-replies to the lead within seconds.",
+    results: [
+      { metric: "0–100", label: "AI-scored on real buying intent, not just form completion" },
+      { metric: "Instant", label: "Auto-reply to every lead — no one waits on a manual response" },
+      { metric: "HOT/WARM/COLD", label: "Classified and routed automatically to the sales inbox" },
+    ],
+    automation: {
+      workflowImages: [
+        {
+          label: "Lead qualification pipeline",
+          src: "/portfolio/lead-qualification-workflow.png",
+          width: 1736,
+          height: 698,
+          alt: "n8n workflow that qualifies leads with AI and routes them to sales",
+        },
+      ],
+      scenarios: [
+        {
+          label: "Hot lead",
+          trigger: "Clear budget, urgent timeline, and decision authority.",
+          steps: ["Capture lead", "Score buying intent", "Save to CRM", "Alert sales immediately"],
+          outcome: "Sales receives a priority notification while the lead receives an instant reply.",
+        },
+        {
+          label: "Warm lead",
+          trigger: "Good fit, but timing or budget still needs clarification.",
+          steps: ["Capture lead", "Score buying intent", "Save to CRM", "Queue normal follow-up"],
+          outcome: "The opportunity stays organized without interrupting the urgent sales queue.",
+        },
+        {
+          label: "Cold lead",
+          trigger: "Low intent, unclear need, or no near-term buying signal.",
+          steps: ["Capture lead", "Score buying intent", "Save to CRM", "Send acknowledgement"],
+          outcome: "The lead is recorded and acknowledged without consuming immediate sales time.",
+        },
+      ],
+      comparison: [
+        { label: "Triage", before: "Every enquiry enters one inbox", after: "Every lead receives an intent score" },
+        { label: "Sales priority", before: "Determined by inbox order", after: "HOT leads surface immediately" },
+        { label: "Lead response", before: "Waits for manual review", after: "Acknowledged within seconds" },
+      ],
+      safeguards: [
+        "The scoring prompt uses explicit buying-intent criteria.",
+        "Every classification and source message is retained in the CRM.",
+        "Automation prioritizes leads; it does not invent missing details.",
+      ],
+    },
+  },
+  {
+    id: "everyday-automations",
+    title: "Everyday Business Automations",
+    category: "Automation",
+    tags: ["Workflow Automation", "Small Business Tools"],
+    description:
+      "Three small, standalone automations built to prove that not every workflow needs to be a big system: a contact form that notifies and auto-replies, an invoice reminder that chases overdue payments, and a review-request automation that follows up after a job is done.",
+    image: "/portfolio/contact-form-workflow.png",
+    clientLabel: "Type",
+    client: "Theoraux Lab · Production-tested prototypes",
+    timeline: "Built and live-tested",
+    techStack: ["n8n", "Google Sheets API", "Gmail API"],
+    challenge:
+      "Most small businesses don't need an elaborate system — they need the basics handled reliably: a contact form that doesn't go into a void, invoices that get chased without someone having to remember, and a way to ask happy customers for a review before the moment passes.",
+    approach:
+      "We built three independent n8n workflows, each doing exactly one job well and following the same lightweight pattern — trigger, decide, act, nothing extra: contact-form notify + auto-reply, staged invoice payment reminders, and post-job review requests two days after completion.",
+    results: [
+      { metric: "3", label: "Standalone automations, each live-tested against real data" },
+      { metric: "5–7", label: "Nodes per workflow — trigger, decide, act, nothing extra" },
+      { metric: "100%", label: "Decision logic verified against real seeded outcomes before going live" },
+    ],
+    automation: {
+      workflowImages: [
+        {
+          label: "Contact form response",
+          src: "/portfolio/contact-form-workflow.png",
+          width: 1234,
+          height: 675,
+          alt: "n8n contact form notification and automatic reply workflow",
+        },
+        {
+          label: "Invoice reminders",
+          src: "/portfolio/invoice-reminder-workflow.png",
+          width: 1657,
+          height: 510,
+          alt: "n8n daily overdue invoice reminder workflow",
+        },
+        {
+          label: "Review requests",
+          src: "/portfolio/review-request-workflow.png",
+          width: 1600,
+          height: 496,
+          alt: "n8n post-job customer review request workflow",
+        },
+      ],
+      scenarios: [
+        {
+          label: "Contact form",
+          trigger: "A prospective customer submits an enquiry.",
+          steps: ["Prepare submission", "Log the enquiry", "Notify the owner", "Reply to the sender"],
+          outcome: "The business is alerted and the customer knows their message arrived.",
+          imageIndex: 0,
+        },
+        {
+          label: "Overdue invoice",
+          trigger: "The daily check finds an unpaid invoice past its due date.",
+          steps: ["Load invoices", "Decide reminders", "Send message", "Record the update"],
+          outcome: "Payment follow-up happens consistently without relying on memory.",
+          imageIndex: 1,
+        },
+        {
+          label: "Finished job",
+          trigger: "A completed job becomes eligible for follow-up.",
+          steps: ["Load completed jobs", "Check eligibility", "Request a review", "Record the update"],
+          outcome: "Happy customers are prompted while the experience is still fresh.",
+          imageIndex: 2,
+        },
+      ],
+      comparison: [
+        { label: "Enquiries", before: "Can disappear into an inbox", after: "Logged, acknowledged, and announced" },
+        { label: "Invoice follow-up", before: "Depends on someone remembering", after: "Checked automatically every morning" },
+        { label: "Review requests", before: "Sent inconsistently or too late", after: "Triggered from completed-job data" },
+      ],
+      safeguards: [
+        "Each workflow does one clearly bounded job.",
+        "Sent-state updates prevent repeated messages.",
+        "Source sheets remain readable and editable by the business.",
+      ],
+    },
+  },
 ];
 
 export const testimonials = [
@@ -350,7 +695,7 @@ export const testimonials = [
 ];
 
 import theodoreImage from "../../assests/17.png";
-import danielImage from "../../assests/21.png";
+import danielImage from "../../assests/daniel-villanueva.png";
 import christianImage from "../../assests/christian.png";
 import johnImage from "../../assests/19.png";
 import paulImage from "../../assests/20.png";

@@ -33,6 +33,10 @@ const faqs = [
 const inputClasses =
   "w-full border-b border-black/20 bg-transparent px-0 py-3 text-sm text-black outline-none transition-colors focus:border-black placeholder:text-neutral-400 dark:border-white/20 dark:text-white dark:focus:border-white dark:placeholder:text-neutral-500";
 
+const selectClasses = `${inputClasses} dark:[color-scheme:dark]`;
+const optionClasses =
+  "bg-white text-black dark:bg-neutral-950 dark:text-white";
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -242,18 +246,38 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, service: e.target.value })
                         }
-                        className={inputClasses}
+                        className={selectClasses}
                       >
-                        <option value="">Select a service</option>
-                        <option value="web">Web Development</option>
-                        <option value="mobile">Mobile App Development</option>
-                        <option value="custom">Custom Software</option>
-                        <option value="design">UI/UX Design</option>
-                        <option value="automation">Process Automation</option>
-                        <option value="ecommerce">E-Commerce</option>
-                        <option value="api">API Integration</option>
-                        <option value="support">Maintenance &amp; Support</option>
-                        <option value="other">Other</option>
+                        <option className={optionClasses} value="">
+                          Select a service
+                        </option>
+                        <option className={optionClasses} value="web">
+                          Web Development
+                        </option>
+                        <option className={optionClasses} value="mobile">
+                          Mobile App Development
+                        </option>
+                        <option className={optionClasses} value="custom">
+                          Custom Software
+                        </option>
+                        <option className={optionClasses} value="design">
+                          UI/UX Design
+                        </option>
+                        <option className={optionClasses} value="automation">
+                          Process Automation
+                        </option>
+                        <option className={optionClasses} value="ecommerce">
+                          E-Commerce
+                        </option>
+                        <option className={optionClasses} value="api">
+                          API Integration
+                        </option>
+                        <option className={optionClasses} value="support">
+                          Maintenance &amp; Support
+                        </option>
+                        <option className={optionClasses} value="other">
+                          Other
+                        </option>
                       </select>
                     </div>
                     <div>
@@ -269,14 +293,26 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, budget: e.target.value })
                         }
-                        className={inputClasses}
+                        className={selectClasses}
                       >
-                        <option value="">Select budget range</option>
-                        <option value="500-1500">$500 - $1,500</option>
-                        <option value="1500-3000">$1,500 - $3,000</option>
-                        <option value="3000-5000">$3,000 - $5,000</option>
-                        <option value="5000-10000">$5,000 - $10,000</option>
-                        <option value="10000+">$10,000+</option>
+                        <option className={optionClasses} value="">
+                          Select budget range
+                        </option>
+                        <option className={optionClasses} value="500-1500">
+                          $500 - $1,500
+                        </option>
+                        <option className={optionClasses} value="1500-3000">
+                          $1,500 - $3,000
+                        </option>
+                        <option className={optionClasses} value="3000-5000">
+                          $3,000 - $5,000
+                        </option>
+                        <option className={optionClasses} value="5000-10000">
+                          $5,000 - $10,000
+                        </option>
+                        <option className={optionClasses} value="10000+">
+                          $10,000+
+                        </option>
                       </select>
                     </div>
                   </div>

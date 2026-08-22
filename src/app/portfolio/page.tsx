@@ -6,7 +6,7 @@ import ProjectRow from "@/components/sections/ProjectRow";
 import { portfolioProjects } from "@/lib/data";
 import CTABanner from "@/components/sections/CTABanner";
 
-const categories = ["All", "Web", "Mobile", "System"];
+const categories = ["All", "Web", "Mobile", "System", "Automation"];
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
