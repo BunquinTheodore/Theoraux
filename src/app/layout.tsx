@@ -3,6 +3,13 @@ import { Inter, IBM_Plex_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/ui/JsonLd";
+import {
+  organizationJsonLd,
+  siteDescription,
+  siteTitle,
+  siteUrl,
+} from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,13 +28,9 @@ const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
 });
 
-const siteUrl = "https://theoraux.com";
-const siteTitle = "Theoraux | Intelligent Automation & Custom Software Solutions";
-const siteDescription =
-  "Theoraux builds custom web, mobile, and software solutions and intelligent automation systems that streamline operations, cut manual work, and drive growth for businesses.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: "Theoraux",
   title: {
     default: siteTitle,
     template: "%s | Theoraux",
@@ -60,6 +63,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    locale: "en_PH",
     url: siteUrl,
     siteName: "Theoraux",
     title: siteTitle,
@@ -81,25 +85,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Theoraux",
-  url: siteUrl,
-  logo: `${siteUrl}/og-image.png`,
-  description: siteDescription,
-  email: "bunquintheodore@gmail.com",
-  telephone: "+639629935762",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "PH",
-  },
-  sameAs: [
-    "https://www.linkedin.com/company/112286976",
-    "https://www.facebook.com/profile.php?id=61582763437544",
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -117,10 +102,7 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme');var isDark=t===null?true:t==='dark';if(isDark){document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={organizationJsonLd} />
         <Navbar />
         <main>{children}</main>
         <Footer />

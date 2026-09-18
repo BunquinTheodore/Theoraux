@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
+export const metadata: Metadata = createPageMetadata({
+  title: "Software & Automation Portfolio",
   description:
-    "Browse Theoraux's portfolio of web, mobile, and custom software projects — from e-commerce storefronts and fintech apps to disaster-monitoring systems and CRM platforms.",
-  alternates: { canonical: "/portfolio" },
-};
+    "Explore Theoraux's websites, custom systems, and n8n automation case studies, including customer support, appointment booking, and AI lead qualification.",
+  path: "/portfolio",
+});
 
 export default function PortfolioLayout({
   children,

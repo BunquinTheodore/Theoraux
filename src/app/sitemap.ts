@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, portfolioProjects } from "@/lib/data";
-
-const siteUrl = "https://theoraux.com";
+import { absoluteUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -13,26 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/contact",
   ].map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.8,
+    url: absoluteUrl(route || "/"),
   }));
 
   const portfolioRoutes: MetadataRoute.Sitemap = portfolioProjects.map(
     (project) => ({
-      url: `${siteUrl}/portfolio/${project.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
+      url: absoluteUrl(`/portfolio/${project.id}`),
     })
   );
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${siteUrl}/blog/${post.slug}`,
+    url: absoluteUrl(`/blog/${post.slug}`),
     lastModified: new Date(post.date),
-    changeFrequency: "monthly",
-    priority: 0.6,
   }));
 
   return [...staticRoutes, ...portfolioRoutes, ...blogRoutes];

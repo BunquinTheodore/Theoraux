@@ -5,6 +5,8 @@ import { ArrowLeft, Clock, User } from "lucide-react";
 import { blogPosts } from "@/lib/data";
 import Rule from "@/components/ui/Rule";
 import type { Metadata } from "next";
+import JsonLd from "@/components/ui/JsonLd";
+import { breadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -18,19 +20,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
-  return {
-    title: `${post.title} | Theoraux Blog`,
+  return createPageMetadata({
+    title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: "article",
-      publishedTime: post.date,
-      authors: [post.author],
-      images: [{ url: post.image }],
-    },
-  };
+    path: `/blog/${post.slug}`,
+    image: post.image,
+    type: "article",
+    publishedTime: post.date,
+    authors: [post.author],
+  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -40,6 +38,13 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <article className="bg-white pt-36 pb-24 text-black dark:bg-black dark:text-white">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Theoraux", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/blog"

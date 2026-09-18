@@ -39,8 +39,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-10 max-w-lg text-base leading-relaxed text-neutral-400 sm:text-lg"
         >
-          We design and build web, mobile, and automation products for
-          growing businesses.
+          Theoraux is a Philippines-based software studio. We design and build
+          custom web, mobile, and n8n automation products for growing businesses
+          worldwide.
         </motion.p>
 
         <motion.div

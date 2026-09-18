@@ -7,10 +7,13 @@ import PortfolioSection from "@/components/sections/PortfolioSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import NetworkSection from "@/components/sections/NetworkSection";
 import CTABanner from "@/components/sections/CTABanner";
+import { createPageMetadata, siteDescription, siteTitle } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Theoraux | Home",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: siteTitle,
+  description: siteDescription,
+  path: "/",
+});
 
 export default function Home() {
   return (

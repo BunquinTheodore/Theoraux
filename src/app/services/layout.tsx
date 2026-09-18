@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata: Metadata = createPageMetadata({
+  title: "Custom Software & Automation Services",
   description:
     "Explore Theoraux's services: web development, mobile app development, custom software & systems, UI/UX design, process automation, e-commerce, API integration, and ongoing maintenance & support.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 export default function ServicesLayout({
   children,

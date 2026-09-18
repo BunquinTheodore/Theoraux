@@ -8,6 +8,8 @@ import CTABanner from "@/components/sections/CTABanner";
 import AutomationCaseStudy from "@/components/sections/AutomationCaseStudy";
 import Rule from "@/components/ui/Rule";
 import type { Metadata } from "next";
+import JsonLd from "@/components/ui/JsonLd";
+import { breadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -21,19 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = portfolioProjects.find((p) => p.id === slug);
   if (!project) return { title: "Project Not Found" };
-  return {
-    title: `${project.title} | Theoraux Case Study`,
+  return createPageMetadata({
+    title: `${project.title} Case Study`,
     description: project.description,
-    alternates: { canonical: `/portfolio/${project.id}` },
-    openGraph: {
-      title: project.title,
-      description: project.description,
-      type: "article",
-      images: [
-        { url: typeof project.image === "string" ? project.image : "/og-image.png" },
-      ],
-    },
-  };
+    path: `/portfolio/${project.id}`,
+    image: typeof project.image === "string" ? project.image : project.image.src,
+    type: "article",
+  });
 }
 
 export default async function ProjectCaseStudyPage({ params }: Props) {
@@ -44,15 +40,24 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
   const currentIndex = portfolioProjects.findIndex((p) => p.id === slug);
   const nextProject =
     portfolioProjects[(currentIndex + 1) % portfolioProjects.length];
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Theoraux", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: project.title, path: `/portfolio/${project.id}` },
+  ]);
 
   if (project.automation) {
     return (
-      <AutomationCaseStudy project={project} nextProject={nextProject} />
+      <>
+        <JsonLd data={breadcrumbs} />
+        <AutomationCaseStudy project={project} nextProject={nextProject} />
+      </>
     );
   }
 
   return (
     <article>
+      <JsonLd data={breadcrumbs} />
       {/* Header */}
       <section className="bg-white px-4 pt-36 pb-16 text-black dark:bg-black dark:text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
