@@ -98,9 +98,23 @@ export default function Footer() {
           <p className="text-xs text-neutral-500">
             &copy; {new Date().getFullYear()} THEORAUX
           </p>
-          <p className="text-xs text-neutral-500">
-            Built with care in the Philippines.
-          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/privacy"
+              className="text-xs text-neutral-500 transition-colors hover:text-black dark:hover:text-white"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-xs text-neutral-500 transition-colors hover:text-black dark:hover:text-white"
+            >
+              Terms of Service
+            </Link>
+            <p className="text-xs text-neutral-500">
+              Built with care in the Philippines.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

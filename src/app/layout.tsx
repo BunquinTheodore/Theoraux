@@ -3,6 +3,7 @@ import { Inter, IBM_Plex_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import JsonLd from "@/components/ui/JsonLd";
 import {
   organizationJsonLd,
@@ -106,6 +107,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <CookieConsentBanner />
       </body>
     </html>
   );
